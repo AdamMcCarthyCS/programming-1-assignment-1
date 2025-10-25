@@ -55,7 +55,7 @@ public class Driver {
                 // call the calculateHP method using the stored values above as arguments to the
                 // method
                 double hpMonthly = carPurchaserHelper.calculateHP(hpPrice, hpDeposit, hpInterest, hpTerm);
-                // print the monthly HP payment which was calulated using the method for the user
+                // print the monthly HP payment which was calculated using the method for the user
                 System.out.println("Monthly HP payment: €" + hpMonthly);
             }
 
@@ -64,14 +64,31 @@ public class Driver {
 
                 // --- PCP Calculation ---
             if (choice == 2) {
+                // read in all the values needed for calling the pcpResultMonth method
+                // store these values in variables which will be passed as arguments to the method
+                System.out.print("Enter car price: ");
+                double pcpPrice = input.nextDouble();
+                System.out.print("Enter the deposit: ");
+                double deposit = input.nextDouble();
+                System.out.print("Enter the annualInterest: ");
+                double annualInterest = input.nextDouble();
+                System.out.print("Enter the term in years: ");
+                int termInYears = input.nextInt();
+                System.out.print("Enter the gmfv percent: ");
+                int gmfvPercent = input.nextInt();
+
+                // pass the values as arguments to the pcpResultMonth method and store t
+                // the return value for printing to the user
+                double monthlyPayment = carPurchaserHelper.pcpResultMonth(pcpPrice, deposit,
+                    annualInterest, termInYears, gmfvPercent);
+
+                // print the monthly payment
+                System.out.println("The monthly payment is €" + monthlyPayment);
 
             }
 
 
-                System.out.print("Enter car price: ");
-                double pcpPrice = input.nextDouble();
-            //ToDo :Ask user to enter all the information required for
-            //calculation and call the appropriate method
+
 
 
             //ToDo :Add in remaining choices for the methods you have written
