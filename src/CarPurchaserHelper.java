@@ -53,7 +53,13 @@ public class CarPurchaserHelper {
         return "Welcome to the Car Purchase Helper!";
     }
 //ToDo: Write a method called printGoodbyeMessage() - returns a String
-
+    /**
+     * Return a goodbye message to the user
+     */
+    public String printGoodbyeMessage() {
+        // return a string literal with a goodbye message
+        return "Thanks for using the Car Purchase Helper!";
+    }
 //ToDo:Write a method called calculateMonthlyCost(double, int) returns a double
 // Calculates a rough monthly payment if the car is paid off over
 // a number of months.
