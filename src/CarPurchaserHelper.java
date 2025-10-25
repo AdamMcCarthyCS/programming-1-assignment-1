@@ -76,18 +76,28 @@ public class CarPurchaserHelper {
         /*
         Divide the car cost by the number of months. Since carPrice is a double the result will
         cast to a double despite months being an int.
-
         TODO: see if the precision matters later. Maybe you can format it if you print the value?
         */
         double monthlyCost = carPrice / numberOfMonths;
 
+        return monthlyCost;
+    }
 
 //ToDo: Write a method called fuelCostEstimator(double, double) returns a double
 // Estimates weekly fuel cost (e.g., assuming 6L per 100 km).
 // Parameters : kilometres per week and cost of fuel
 // work out litres per week by dividing weekly kms by 100 and mulitplying by 6, then multiply by cost
 
+    public double fuelCostEstimator(double kilometersPerWeek, double costOfFuel) {
+        // calculate the number of liters used per week
+        double litersPerWeek = kilometersPerWeek / 100 * 6;
 
+        // calculate total cost per week by multiplying the cost of fuel per liter by the number of
+        // liters used weekly
+        double weeklyFuelCost = costOfFuel * litersPerWeek;
+
+        return weeklyFuelCost;
+    }
 //ToDo: Write a method called recommendCarType(String) returns a String
 // Gives a recommendation based on the user's lifestyle
 // (Parameter : requirement e.g., “family,” “commute,” “adventure”).
