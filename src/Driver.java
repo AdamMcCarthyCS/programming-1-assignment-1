@@ -32,10 +32,17 @@ public class Driver {
             System.out.print("Choose an option: ");
             choice = input.nextInt();
 
-            //ToDo :if user chooses HP
+            // Add an empty line before the next lines printed out to the user
+            System.out.println();
 
-            /* ToDo :  you can uncomment and use
-             // --- HP Calculation ---
+            // --- HP Calculation ---
+            //ToDo :if user chooses HP
+            if (choice == 1) {
+
+                // Read in the values needed for the calculateHP method
+                // Store the values in variables which will be passed to the calculateHP method
+                // as arguments when it is called
+
                 System.out.print("Enter car price: ");
                 double hpPrice = input.nextDouble();
                 System.out.print("Enter deposit: ");
@@ -45,14 +52,20 @@ public class Driver {
                 System.out.print("Enter term in years: ");
                 int hpTerm = input.nextInt();
 
+                // call the calculateHP method using the stored values above as arguments to the
+                // method
                 double hpMonthly = carPurchaserHelper.calculateHP(hpPrice, hpDeposit, hpInterest, hpTerm);
+                // print the monthly HP payment which was calulated using the method for the user
                 System.out.println("Monthly HP payment: €" + hpMonthly);
-             */
+            }
 
 
-            //ToDo :if user chooses PCP
+
+
                 // --- PCP Calculation ---
+            if (choice == 2) {
 
+            }
 
 
                 System.out.print("Enter car price: ");

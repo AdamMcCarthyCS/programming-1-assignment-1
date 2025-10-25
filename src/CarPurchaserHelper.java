@@ -44,7 +44,6 @@ public class CarPurchaserHelper {
 
         return  monthlyPayment;
     }
-//ToDo: Write a method called printWelcomeMessage() - returns a String
     /**
      * Return a welcome message to the user
      */
@@ -52,7 +51,7 @@ public class CarPurchaserHelper {
         // return a string literal with welcome message
         return "Welcome to the Car Purchase Helper!";
     }
-//ToDo: Write a method called printGoodbyeMessage() - returns a String
+
     /**
      * Return a goodbye message to the user
      */
@@ -60,10 +59,6 @@ public class CarPurchaserHelper {
         // return a string literal with a goodbye message
         return "Thanks for using the Car Purchase Helper!";
     }
-//ToDo:Write a method called calculateMonthlyCost(double, int) returns a double
-// Calculates a rough monthly payment if the car is paid off over
-// a number of months.
-// Parameters : price of car and number of months
 
     /**
      *
@@ -83,10 +78,6 @@ public class CarPurchaserHelper {
         return monthlyCost;
     }
 
-//ToDo: Write a method called fuelCostEstimator(double, double) returns a double
-// Estimates weekly fuel cost (e.g., assuming 6L per 100 km).
-// Parameters : kilometres per week and cost of fuel
-// work out litres per week by dividing weekly kms by 100 and mulitplying by 6, then multiply by cost
 
     public double fuelCostEstimator(double kilometersPerWeek, double costOfFuel) {
         // calculate the number of liters used per week
