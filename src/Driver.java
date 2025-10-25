@@ -8,18 +8,29 @@ public class Driver {
     }
     Driver(){
         Scanner input = new Scanner(System.in);
-        //ToDo : create a CarPurchaseHelper Object called carPurchaserHelper
         /*
         Create an instance of the CarPurchaseHelper class.
         */
-        CarPurchaserHelper carPurchaseHelper = new CarPurchaserHelper();
+        CarPurchaserHelper carPurchaserHelper = new CarPurchaserHelper();
 
-        int choice = input.nextInt();
+        //To-do :call welcome message
 
-        //ToDo :call welcome message
+        // print the welcome message by passing the string returned from the function to print
+        // method
+        System.out.println(carPurchaserHelper.printWelcomeMessage());
+
+        // use sentinel value to start while loop
+        int choice = -1;
         while (choice != 0) {
-            //ToDo :print menu
-            //ToDo :user enters choice
+            System.out.println("--- Car Finance Calculator ---");
+            System.out.println("1. Calculate HP");
+            System.out.println("2. Calculate PCP");
+            System.out.println("3. Calculate Fuel Cost");
+            System.out.println("4. Calculate Monthly Cost");
+            System.out.println("5. Recommend Car Type");
+            System.out.println("6. Exit");
+            System.out.print("Choose an option: ");
+            choice = input.nextInt();
 
             //ToDo :if user chooses HP
 
