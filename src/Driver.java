@@ -79,6 +79,21 @@
 
                 }
 
+                    // --- Fuel Cost Calculation ---
+                if (choice == 3) {
+                    // read in the kilometers travelled per week and fuel cost from the user
+                    // this will be used to estimate the fuel cost per week
+                    System.out.print("Enter estimated kilometers traveled per week: ");
+                    double kilometersPerWeek = input.nextDouble();
+                    System.out.print("Enter the cost of fuel per liter: ");
+                    double costOfFuel = input.nextDouble();
+
+                    // print out the fuel cost per week
+                    double fuelCostPerWeek = carPurchaserHelper.fuelCostEstimator(kilometersPerWeek,
+                            costOfFuel);
+                    System.out.println("The estimated fuel cost per week is €" + fuelCostPerWeek);
+                }
+
 
 
 
