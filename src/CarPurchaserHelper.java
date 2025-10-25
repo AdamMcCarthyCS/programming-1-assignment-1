@@ -45,12 +45,20 @@ public class CarPurchaserHelper {
         return  monthlyPayment;
     }
 //ToDo: Write a method called printWelcomeMessage() - returns a String
+    /**
+     * Return a welcome message to the user
+     */
+    public String printWelcomeMessage() {
+        // return a string literal with welcome message
+        return "Welcome to the Car Purchase Helper!";
+    }
 //ToDo: Write a method called printGoodbyeMessage() - returns a String
 
 //ToDo:Write a method called calculateMonthlyCost(double, int) returns a double
 // Calculates a rough monthly payment if the car is paid off over
 // a number of months.
 // Parameters : price of car and number of months
+
 
 //ToDo: Write a method called fuelCostEstimator(double, double) returns a double
 // Estimates weekly fuel cost (e.g., assuming 6L per 100 km).
