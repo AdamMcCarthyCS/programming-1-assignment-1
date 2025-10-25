@@ -65,6 +65,22 @@ public class CarPurchaserHelper {
 // a number of months.
 // Parameters : price of car and number of months
 
+    /**
+     *
+     * @param carPrice          a double amount in euros and cents which represents the car price
+     * @param numberOfMonths    an integer number of months over which the repayments are made
+     *
+     * @return                  the amount the user will have to rou
+     */
+    public double calculateMonthlyCost(double carPrice, int numberOfMonths) {
+        /*
+        Divide the car cost by the number of months. Since carPrice is a double the result will
+        cast to a double despite months being an int.
+
+        TODO: see if the precision matters later. Maybe you can format it if you print the value?
+        */
+        double monthlyCost = carPrice / numberOfMonths;
+
 
 //ToDo: Write a method called fuelCostEstimator(double, double) returns a double
 // Estimates weekly fuel cost (e.g., assuming 6L per 100 km).

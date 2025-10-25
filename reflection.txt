@@ -7,3 +7,10 @@ Methods with parameters and return values
 How PCP/HP were understood and used
 
 Coding process and challenges
+
+
+
+References:
+Rounding of decimals:
+- Read Math.round documentation to understand the different behaviour for floats and doubles
+    - https://www.w3schools.com/java/ref_math_round.asp
