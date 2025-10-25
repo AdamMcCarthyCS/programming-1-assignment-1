@@ -9,6 +9,11 @@ public class Driver {
     Driver(){
         Scanner input = new Scanner(System.in);
         //ToDo : create a CarPurchaseHelper Object called carPurchaserHelper
+        /*
+        Create an instance of the CarPurchaseHelper class.
+        */
+        CarPurchaserHelper carPurchaseHelper = new CarPurchaserHelper();
+
         int choice = input.nextInt();
 
         //ToDo :call welcome message
