@@ -19,3 +19,7 @@ HP APR example rate: (0.9%)
 https://www.volkswagen.ie/en/offers-and-products/new-car-offers.html (section 2)
 Depoist Requirement: (35%)
 https://www.volkswagen.ie/en/offers-and-products/new-car-offers.html (section 3)
+Escaping a percent sign in String.format
+https://stackoverflow.com/questions/1708444/java-literal-percent-sign-in-printf-statement
+Letter to represent integer in String.format (see first table)
+https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Formatter.html#syntax

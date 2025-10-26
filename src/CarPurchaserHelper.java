@@ -93,7 +93,7 @@ public class CarPurchaserHelper {
 // Gives a recommendation based on the user's lifestyle
 // (Parameter : requirement e.g., “family,” “commute,” “adventure”).
 
-    public String reccomendCarType(String userLifestyle) {
+    public String recommendCarType(String userLifestyle) {
         double carPrice;
         double deposit;
         double kilometersPerWeek;
@@ -127,22 +127,34 @@ public class CarPurchaserHelper {
             weeklyFuelCost = fuelCostEstimator(kilometersPerWeek, costOfFuel);
 
             // Store the message to be returned to the user
-            String recommendationMessage =
-                "The car we recommend for you is: " + carName + "\n"
-                + "Car price: €" + carPrice + "\n"
-                + "Options:\n"
-                + "1) HP Agreement: €" + hpMonthlyPayment + " for " + numberOfRepaymentMonths
-                    + "months at " + annualInterestHP + "% APR, with initial deposit of €"
-                    + deposit + "\n"
-                + "2) PCP Agreement: €" + pcpMonthlyPayment + " for " + numberOfRepaymentMonths
-                    + " months at " + annualInterestPCP + "% APR, with initial deposit of €"
-                    + deposit + " and gmfv " + " of " + gmfvPercent + "%\n"
-                + "3) OrdinaryFinance: €" + ordinaryFinanceMonthlyCost + " for "
-                    + numberOfRepaymentMonths + " months\n"
-                + "Estimated weekly fuel cost based on " + kilometersPerWeek + "kilometers/pw at "
-                    + "current fuel price of " + costOfFuel + " per liter is €" + weeklyFuelCost;
 
-            return recommendationMessage;
+            // format carPrice to print to 2dp.
+            String recommendationLine = String.format("The car we recommend for you is: " + carName + "\n"
+                + "Car price: €%.2f\n", carPrice)
+                + "Options:\n";
+            // format hpMonthlyPayment and deposit to print to 2dp
+            // format numberOfRepaymentMonths and annualInterestPCP to print as integers
+            String hpLine = String.format("1) HP Agreement: €%.2f for %d months at %.2f%% APR, " +
+                "with initial deposit of €%.2f\n", hpMonthlyPayment, numberOfRepaymentMonths,
+                annualInterestHP, deposit);
+            // format all double values to 2dp
+            String pcpLine = String.format("2) PCP Agreement: €%.2f for %d months at %.2f%% APR, " +
+                "with initial deposit of €%.2f and gmfv of %.2f%%\n", pcpMonthlyPayment,
+                numberOfRepaymentMonths, annualInterestPCP, deposit, gmfvPercent);
+            // format ordinaryFinanceMonthlyCost to 2dp
+            // format numberOfRepaymentMonths as an integer
+            String ordinaryFinancingLine = String.format("3) Ordinary financing: €%.2f for "
+                + "%d months\n", ordinaryFinanceMonthlyCost, numberOfRepaymentMonths);
+            // format all doubles to 2dp
+            String fuelCostLine = String.format("Estimated weekly fuel cost based on "
+                + "%.2f kilometers/pw at current fuel price of €%.2f "
+                + "per liter is €%.2f" + weeklyFuelCost, kilometersPerWeek, costOfFuel, weeklyFuelCost);
+
+            // concatenate the above strings to create the message to be returned
+            String message = recommendationLine + hpLine + pcpLine + ordinaryFinancingLine
+                + fuelCostLine;
+
+            return message;
 
         }
         return "Invalid lifestyle option!";
