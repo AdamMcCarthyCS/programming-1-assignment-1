@@ -93,7 +93,60 @@ public class CarPurchaserHelper {
 // Gives a recommendation based on the user's lifestyle
 // (Parameter : requirement e.g., “family,” “commute,” “adventure”).
 
+    public String reccomendCarType(String userLifestyle) {
+        double carPrice;
+        double deposit;
+        double kilometersPerWeek;
+        double gmfvPercent = 50.0d; // The car retains half its value
+        double costOfFuel = 1.76; // The cost of petrol at the time of writing
+        double annualInterestHP = 5.9d; // Taken from VW Website
+        double annualInterestPCP = 0.9d; // Taken from VW Website
+        int numberOfRepaymentMonths = 48; // Taken from VW Website (See references)
+        int termYears = numberOfRepaymentMonths / 12;
 
+        // Calculate the following to return to user in recommendation
+        double hpMonthlyPayment;
+        double pcpMonthlyPayment;
+        double ordinaryFinanceMonthlyCost;
+        double weeklyFuelCost;
+
+        if (userLifestyle.equals("family")) {
+            // Store the name of the car and calcualte the deposit
+            String carName = "Volswagon T-Roc R-Line";
+            carPrice = 40460.00d;
+            deposit = carPrice * 0.3d; // 30% of value
+            kilometersPerWeek = 300;
+            // calculate the HP monthly payment
+            hpMonthlyPayment = calculateHP(carPrice, deposit, annualInterestHP, termYears);
+            // calculate the PCP monthly Payment
+            pcpMonthlyPayment = pcpResultMonth(carPrice, deposit, annualInterestPCP, termYears,
+                gmfvPercent);
+            // calculate ordinary finance monthly payment
+            ordinaryFinanceMonthlyCost = calculateMonthlyCost(carPrice, numberOfRepaymentMonths);
+            // calculate weekly fuel cost
+            weeklyFuelCost = fuelCostEstimator(kilometersPerWeek, costOfFuel);
+
+            // Store the message to be returned to the user
+            String recommendationMessage =
+                "The car we recommend for you is: " + carName + "\n"
+                + "Car price: €" + carPrice + "\n"
+                + "Options:\n"
+                + "1) HP Agreement: €" + hpMonthlyPayment + " for " + numberOfRepaymentMonths
+                    + "months at " + annualInterestHP + "% APR, with initial deposit of €"
+                    + deposit + "\n"
+                + "2) PCP Agreement: €" + pcpMonthlyPayment + " for " + numberOfRepaymentMonths
+                    + " months at " + annualInterestPCP + "% APR, with initial deposit of €"
+                    + deposit + " and gmfv " + " of " + gmfvPercent + "%\n"
+                + "3) OrdinaryFinance: €" + ordinaryFinanceMonthlyCost + " for "
+                    + numberOfRepaymentMonths + " months\n"
+                + "Estimated weekly fuel cost based on " + kilometersPerWeek + "kilometers/pw at "
+                    + "current fuel price of " + costOfFuel + " per liter is €" + weeklyFuelCost;
+
+            return recommendationMessage;
+
+        }
+        return "Invalid lifestyle option!";
+    }
 
 }
 

@@ -11,6 +11,11 @@ Coding process and challenges
 
 
 References:
-Rounding of decimals:
-- Read Math.round documentation to understand the different behaviour for floats and doubles
-    - https://www.w3schools.com/java/ref_math_round.asp
+Volswagon T-Roc price:
+https://www.volkswagen.ie/en/used-cars/approved-used-cars.html/__app/search/car/SVJMMDAzOTUxNzg4MjQ=.app?pageIndex-app=1&t_manuf-app=BQ&t_cartype-app=N&sort-app=INITIAL_REG&sortdirection-app=DESC
+PCP APR example rate: (5.9%)
+https://www.volkswagen.ie/en/offers-and-products/new-car-offers.html (section 3)
+HP APR example rate: (0.9%)
+https://www.volkswagen.ie/en/offers-and-products/new-car-offers.html (section 2)
+Depoist Requirement: (35%)
+https://www.volkswagen.ie/en/offers-and-products/new-car-offers.html (section 3)
