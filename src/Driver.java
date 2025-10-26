@@ -26,8 +26,8 @@
                 System.out.println("5. Recommend Car Type");
                 System.out.println("6. Exit");
                 System.out.print("Choose an option: ");
-                choice = Integer.parseInt(input.nextLine());
-
+                choice = input.nextInt();
+                input.nextLine();
 
 
                 // --- HP Calculation ---

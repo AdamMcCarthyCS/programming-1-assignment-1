@@ -113,6 +113,16 @@ public class CarPurchaserHelper {
             carPrice = 40460.00d;
             deposit = carPrice * 0.3d; // 30% of value
             kilometersPerWeek = 300;
+        } else if (userLifestyle.equals("luxury")) {
+            carName = "BMW BWM i4 eDrive35 M Sport";
+            carPrice = 74501.40d;
+            deposit = carPrice * 0.3d; // 30% of value
+            kilometersPerWeek = 300;
+        } else if (userLifestyle.equals("adventure")) {
+            carName = "Land Rover Defender";
+            carPrice = 72825d;
+            deposit = carPrice * 0.3d; // 30% of value
+            kilometersPerWeek = 1000;
         } else {
             return "Invalid lifestyle option!";
         }
