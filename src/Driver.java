@@ -94,6 +94,24 @@
                     System.out.println("The estimated fuel cost per week is €" + fuelCostPerWeek);
                 }
 
+                    // --- Monthly Cost Calculator ---
+                if (choice == 4) {
+                    // read in the car price and number of months from the user and store
+                    // these values will be passed as arguments to the fuelCostEstimator method
+                    System.out.print("Enter the car price: ");
+                    double carPrice = input.nextDouble();
+                    System.out.print("Enter the term of the repayments in months: ");
+                    int numberOfMonths = input.nextInt();
+
+                    // calculate the monthly repayment by passing the variables above as arguments
+                    // to the calcualteMonthlyCost method and store the returned value
+                    double monthlyCost = carPurchaserHelper.calculateMonthlyCost(carPrice,
+                        numberOfMonths);
+
+                    // print out the monthly repayments for the user
+                    System.out.println("The monthly repayments are €" + monthlyCost);
+                }
+
 
 
 
