@@ -27,7 +27,7 @@
                 System.out.println("6. Exit");
                 System.out.print("Choose an option: ");
                 choice = input.nextInt();
-
+                input.nextLine();
 
 
                 // --- HP Calculation ---
@@ -112,7 +112,17 @@
                     System.out.println("The monthly repayments are €" + monthlyCost);
                 }
 
-
+            if (choice == 5) {
+                // prompt the user of the car recommendation categories
+                System.out.println("Please enter a lifestyle choice to get your car reccomendation!");
+                System.out.print("Enter an option from: 'family', 'luxury', 'adventure': ");
+                // read in user choice
+                String lifestyleChoice = input.nextLine();
+                // get recommendation based on choice
+                String recommendation = carPurchaserHelper.recommendCarType(lifestyleChoice);
+                // print reccomendation
+                System.out.println(recommendation);
+            }
 
 
 

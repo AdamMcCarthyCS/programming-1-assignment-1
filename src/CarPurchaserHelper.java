@@ -89,11 +89,85 @@ public class CarPurchaserHelper {
 
         return weeklyFuelCost;
     }
-//ToDo: Write a method called recommendCarType(String) returns a String
-// Gives a recommendation based on the user's lifestyle
-// (Parameter : requirement e.g., “family,” “commute,” “adventure”).
+
+    public String recommendCarType(String userLifestyle) {
+        double carPrice;
+        double deposit;
+        double kilometersPerWeek;
+        double gmfvPercent = 50.0d; // The car retains half its value
+        double costOfFuel = 1.76; // The cost of petrol at the time of writing
+        double annualInterestHP = 5.9d; // Taken from VW Website
+        double annualInterestPCP = 0.9d; // Taken from VW Website
+        int numberOfRepaymentMonths = 48; // Taken from VW Website (See references)
+        int termYears = numberOfRepaymentMonths / 12;
+
+        // Calculate the following to return to user in recommendation
+        double hpMonthlyPayment;
+        double pcpMonthlyPayment;
+        double ordinaryFinanceMonthlyCost;
+        double weeklyFuelCost;
+        String carName;
+        if (userLifestyle.equals("family")) {
+            // Store the name of the car and calcualte the deposit
+            carName = "Volkswagen T-Roc R-Line";
+            carPrice = 40460.00d;
+            deposit = carPrice * 0.3d; // 30% of value
+            kilometersPerWeek = 300;
+        } else if (userLifestyle.equals("luxury")) {
+            carName = "BMW BWM i4 eDrive35 M Sport";
+            carPrice = 74501.40d;
+            deposit = carPrice * 0.3d; // 30% of value
+            kilometersPerWeek = 300;
+        } else if (userLifestyle.equals("adventure")) {
+            carName = "Land Rover Defender";
+            carPrice = 72825d;
+            deposit = carPrice * 0.3d; // 30% of value
+            kilometersPerWeek = 1000;
+        } else {
+            return "Invalid lifestyle option!";
+        }
+        // calculate the HP monthly payment
+        hpMonthlyPayment = calculateHP(carPrice, deposit, annualInterestHP, termYears);
+        // calculate the PCP monthly Payment
+        pcpMonthlyPayment = pcpResultMonth(carPrice, deposit, annualInterestPCP, termYears,
+            gmfvPercent);
+        // calculate ordinary finance monthly payment
+        ordinaryFinanceMonthlyCost = calculateMonthlyCost(carPrice, numberOfRepaymentMonths);
+        // calculate weekly fuel cost
+        weeklyFuelCost = fuelCostEstimator(kilometersPerWeek, costOfFuel);
+
+        // Store the message to be returned to the user
+
+        // format carPrice to print to 2dp.
+        String recommendationLine = String.format("The car we recommend for you is: " + carName + "\n"
+            + "Car price: €%.2f\n", carPrice)
+            + "Options:\n";
+        // format hpMonthlyPayment and deposit to print to 2dp
+        // format numberOfRepaymentMonths and annualInterestPCP to print as integers
+        String hpLine = String.format("1) HP Agreement: €%.2f for %d months at %.2f%% APR, " +
+            "with initial deposit of €%.2f\n", hpMonthlyPayment, numberOfRepaymentMonths,
+            annualInterestHP, deposit);
+        // format all double values to 2dp
+        String pcpLine = String.format("2) PCP Agreement: €%.2f for %d months at %.2f%% APR, " +
+            "with initial deposit of €%.2f and gmfv of %.2f%%\n", pcpMonthlyPayment,
+            numberOfRepaymentMonths, annualInterestPCP, deposit, gmfvPercent);
+        // format ordinaryFinanceMonthlyCost to 2dp
+        // format numberOfRepaymentMonths as an integer
+        String ordinaryFinancingLine = String.format("3) Ordinary financing: €%.2f for "
+            + "%d months\n", ordinaryFinanceMonthlyCost, numberOfRepaymentMonths);
+        // format all doubles to 2dp
+        String fuelCostLine = String.format("Estimated weekly fuel cost based on "
+            + "%.2f kilometers/pw at current fuel price of €%.2f "
+            + "per liter is €%.2f", kilometersPerWeek, costOfFuel, weeklyFuelCost);
+
+        // concatenate the above strings to create the message to be returned
+        String message = recommendationLine + hpLine + pcpLine + ordinaryFinancingLine
+            + fuelCostLine;
+
+            return message;
 
 
+    }
 
 }
 
