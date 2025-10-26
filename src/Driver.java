@@ -29,6 +29,9 @@
                 choice = input.nextInt();
                 input.nextLine();
 
+                // Add newline after user choice for UI visual improvement
+                System.out.println();
+
 
                 // --- HP Calculation ---
                 //ToDo :if user chooses HP
@@ -62,11 +65,11 @@
                     double pcpPrice = input.nextDouble();
                     System.out.print("Enter the deposit: ");
                     double deposit = input.nextDouble();
-                    System.out.print("Enter the annualInterest: ");
+                    System.out.print("Enter the annual interest rate (%): ");
                     double annualInterest = input.nextDouble();
                     System.out.print("Enter the term in years: ");
                     int termInYears = input.nextInt();
-                    System.out.print("Enter the gmfv percent: ");
+                    System.out.print("Enter the GMFV percent: ");
                     int gmfvPercent = input.nextInt();
 
                     // pass the values as arguments to the pcpResultMonth method and store t
@@ -114,13 +117,13 @@
 
             if (choice == 5) {
                 // prompt the user of the car recommendation categories
-                System.out.println("Please enter a lifestyle choice to get your car reccomendation!");
+                System.out.println("Please enter a lifestyle choice to get your car recommendation!");
                 System.out.print("Enter an option from: 'family', 'luxury', 'adventure': ");
                 // read in user choice
                 String lifestyleChoice = input.nextLine();
                 // get recommendation based on choice
                 String recommendation = carPurchaserHelper.recommendCarType(lifestyleChoice);
-                // print reccomendation
+                // print recommendation
                 System.out.println(recommendation);
             }
 
