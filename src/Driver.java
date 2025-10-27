@@ -157,6 +157,92 @@
             System.out.println(goodbyeMessage);
             }
 
+        public void start(Scanner input, CarPurchaserHelper carPurchaserHelper) {
+            // use sentinel value to start while loop
+            int choice = -1;
+            while (choice != 0) {
+                // Add an empty line before menu is reprinted each time
+                System.out.println();
+
+                System.out.println("--- Car Finance Calculator ---");
+                System.out.println("1. Calculate HP");
+                System.out.println("2. Calculate PCP");
+                System.out.println("3. Calculate Fuel Cost");
+                System.out.println("4. Calculate Monthly Cost");
+                System.out.println("5. Recommend Car Type");
+                System.out.println("6. Exit");
+                System.out.print("Choose an option: ");
+                choice = input.nextInt();
+                input.nextLine();
+
+                // Add newline after user choice for UI visual improvement
+                System.out.println();
+
+                choice = chooseMenuItem(choice, input, carPurchaserHelper);
+            }
+        }
+
+        public int chooseMenuItem(int userChoice, Scanner input,
+              CarPurchaserHelper carPurchaserHelper) {
+            if (userChoice == 1) {
+                calculateHP(input, carPurchaserHelper);
+                return 1;
+            } else if (userChoice == 2) {
+                calculatePCP(input, carPurchaserHelper);
+                return 2;
+            } else if (userChoice == 6) {
+                return 0;
+            } else {
+                return -1;
+            }
+        }
+
+        public void calculateHP(Scanner input, CarPurchaserHelper carPurchaserHelper) {
+            // Read in the values needed for the calculateHP method
+            // Store the values in variables which will be passed to the calculateHP method
+            // as arguments when it is called
+
+            System.out.print("Enter car price: ");
+            double hpPrice = input.nextDouble();
+            System.out.print("Enter deposit: ");
+            double hpDeposit = input.nextDouble();
+            System.out.print("Enter annual interest rate (%): ");
+            double hpInterest = input.nextDouble();
+            System.out.print("Enter term in years: ");
+            int hpTerm = input.nextInt();
+
+            // call the calculateHP method using the stored values above as arguments to the
+            // method
+            double hpMonthly = carPurchaserHelper.calculateHP(hpPrice, hpDeposit, hpInterest, hpTerm);
+            // format the hpMonthly string to print to 2dp
+            String hpMonthlyOutput = String.format("Monthly HP payment: €%.2f" ,hpMonthly);
+            // print the monthly HP payment which was calculated using the method for the user
+            System.out.println(hpMonthlyOutput);
+        }
+
+        public void calculatePCP(Scanner input, CarPurchaserHelper carPurchaserHelper) {
+            // read in all the values needed for calling the pcpResultMonth method
+            // store these values in variables which will be passed as arguments to the method
+            System.out.print("Enter car price: ");
+            double pcpPrice = input.nextDouble();
+            System.out.print("Enter the deposit: ");
+            double deposit = input.nextDouble();
+            System.out.print("Enter the annual interest rate (%): ");
+            double annualInterest = input.nextDouble();
+            System.out.print("Enter the term in years: ");
+            int termInYears = input.nextInt();
+            System.out.print("Enter the GMFV percent: ");
+            int gmfvPercent = input.nextInt();
+
+            // pass the values as arguments to the pcpResultMonth method and store t
+            // the return value for printing to the user
+            double monthlyPayment = carPurchaserHelper.pcpResultMonth(pcpPrice, deposit,
+                    annualInterest, termInYears, gmfvPercent);
+            // format the monthlyPayment to print to 2dp
+            String monthlyPaymentOutput = String.format("The monthly payment is €%.2f",monthlyPayment);
+            // print the monthly payment
+            System.out.println(monthlyPaymentOutput);
+        }
         }
 
 
