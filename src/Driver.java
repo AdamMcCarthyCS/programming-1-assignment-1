@@ -198,12 +198,13 @@
             } else if (userChoice == 4) {
                 calculateMonthlyCost(input, carPurchaserHelper);
             } else if (userChoice == 5) {
-
+                recommendCarChoice(input, carPurchaserHelper);
             } else if (userChoice == 6) {
                 return 0;
-            } else {
-                return -1;
             }
+
+            // if no valid choice was made return -1
+            return -1;
         }
 
         public void calculateHP(Scanner input, CarPurchaserHelper carPurchaserHelper) {
@@ -288,6 +289,19 @@
             // print out the monthly repayments for the user
             System.out.println(monthlyCostOutput);
         }
+
+        public void recommendCarChoice(Scanner input, CarPurchaserHelper carPurchaserHelper) {
+            // prompt the user of the car recommendation categories
+            System.out.println("Please enter a lifestyle choice to get your car recommendation!");
+            System.out.print("Enter an option from: 'family', 'luxury', 'adventure': ");
+            // read in user choice
+            String lifestyleChoice = input.nextLine();
+            // get recommendation based on choice
+            String recommendation = carPurchaserHelper.recommendCarType(lifestyleChoice);
+            // print recommendation
+            System.out.println(recommendation);
+        }
+
         }
 
 
