@@ -179,6 +179,9 @@
                 System.out.println();
 
                 choice = chooseMenuItem(choice, input, carPurchaserHelper);
+                if (choice == -1) {
+                    System.out.println("That is not a valid menu choice");
+                }
             }
         }
 
