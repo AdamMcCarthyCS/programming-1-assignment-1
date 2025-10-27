@@ -193,6 +193,12 @@
             } else if (userChoice == 2) {
                 calculatePCP(input, carPurchaserHelper);
                 return 2;
+            } else if (userChoice == 3) {
+                calculateFuelCost(input, carPurchaserHelper);
+            } else if (userChoice == 4) {
+                calculateMonthlyCost(input, carPurchaserHelper);
+            } else if (userChoice == 5) {
+
             } else if (userChoice == 6) {
                 return 0;
             } else {
@@ -262,6 +268,25 @@
             String fuelCostOutput  = String.format("The estimated fuel cost per week is "
                     + "€%.2f", fuelCostPerWeek);
             System.out.println(fuelCostOutput);
+        }
+
+        public void calculateMonthlyCost(Scanner input, CarPurchaserHelper carPurchaserHelper) {
+            // read in the car price and number of months from the user and store
+            // these values will be passed as arguments to the fuelCostEstimator method
+            System.out.print("Enter the car price: ");
+            double carPrice = input.nextDouble();
+            System.out.print("Enter the term of the repayments in months: ");
+            int numberOfMonths = input.nextInt();
+
+            // calculate the monthly repayment by passing the variables above as arguments
+            // to the calcualteMonthlyCost method and store the returned value
+            double monthlyCost = carPurchaserHelper.calculateMonthlyCost(carPrice,
+                    numberOfMonths);
+            // format the monthly cost to print to 2dp
+            String monthlyCostOutput = String.format("The monthly repayments are €%.2f",
+                    monthlyCost);
+            // print out the monthly repayments for the user
+            System.out.println(monthlyCostOutput);
         }
         }
 
