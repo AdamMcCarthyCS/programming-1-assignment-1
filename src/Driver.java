@@ -195,10 +195,13 @@
                 return 2;
             } else if (userChoice == 3) {
                 calculateFuelCost(input, carPurchaserHelper);
+                return 3;
             } else if (userChoice == 4) {
                 calculateMonthlyCost(input, carPurchaserHelper);
+                return 4;
             } else if (userChoice == 5) {
                 recommendCarChoice(input, carPurchaserHelper);
+                return 5;
             } else if (userChoice == 6) {
                 return 0;
             }
