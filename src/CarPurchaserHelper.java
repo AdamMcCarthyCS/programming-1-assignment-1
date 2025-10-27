@@ -92,6 +92,7 @@ public class CarPurchaserHelper {
 
     public String recommendCarType(String userLifestyle) {
         double carPrice;
+        //TODO add 30% deposit for PCP and 35% for HP as on VW Example page
         double deposit;
         double kilometersPerWeek;
         double gmfvPercent = 50.0d; // The car retains half its value

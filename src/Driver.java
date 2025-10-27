@@ -10,7 +10,7 @@
             // print the welcome message by passing the string returned from the function to print
             // method
             String welcomeMessage = carPurchaserHelper.printWelcomeMessage();
-            System.out.println();
+            System.out.println(welcomeMessage);
 
             // use sentinel value to start while loop
             int choice = -1;
@@ -53,8 +53,10 @@
                     // call the calculateHP method using the stored values above as arguments to the
                     // method
                     double hpMonthly = carPurchaserHelper.calculateHP(hpPrice, hpDeposit, hpInterest, hpTerm);
+                    // format the hpMonthly string to print to 2dp
+                    String hpMonthlyOutput = String.format("Monthly HP payment: €%.2f" ,hpMonthly);
                     // print the monthly HP payment which was calculated using the method for the user
-                    System.out.println("Monthly HP payment: €" + hpMonthly);
+                    System.out.println(hpMonthlyOutput);
                 }
 
                     // --- PCP Calculation ---
@@ -76,9 +78,10 @@
                     // the return value for printing to the user
                     double monthlyPayment = carPurchaserHelper.pcpResultMonth(pcpPrice, deposit,
                         annualInterest, termInYears, gmfvPercent);
-
+                    // format the monthlyPayment to print to 2dp
+                    String monthlyPaymentOutput = String.format("The monthly payment is €%.2f",monthlyPayment);
                     // print the monthly payment
-                    System.out.println("The monthly payment is €" + monthlyPayment);
+                    System.out.println(monthlyPaymentOutput);
 
                 }
 
@@ -94,7 +97,10 @@
                     // print out the fuel cost per week
                     double fuelCostPerWeek = carPurchaserHelper.fuelCostEstimator(kilometersPerWeek,
                             costOfFuel);
-                    System.out.println("The estimated fuel cost per week is €" + fuelCostPerWeek);
+                    // format the fuelCostPerWeek to print to  2dp
+                    String fuelCostOutput  = String.format("The estimated fuel cost per week is "
+                        + "€%.2f", fuelCostPerWeek);
+                    System.out.println(fuelCostOutput);
                 }
 
                     // --- Monthly Cost Calculator ---
@@ -110,9 +116,11 @@
                     // to the calcualteMonthlyCost method and store the returned value
                     double monthlyCost = carPurchaserHelper.calculateMonthlyCost(carPrice,
                         numberOfMonths);
-
+                    // format the monthly cost to print to 2dp
+                    String monthlyCostOutput = String.format("The monthly repayments are €%.2f",
+                        monthlyCost);
                     // print out the monthly repayments for the user
-                    System.out.println("The monthly repayments are €" + monthlyCost);
+                    System.out.println(monthlyCostOutput);
                 }
 
             if (choice == 5) {
