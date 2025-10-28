@@ -1,5 +1,15 @@
     import java.util.Scanner;
 
+    /**
+     * This class is the entry point to the program.
+     *
+     * <p>The program starts in the {@code main} method. Using the {@code start} method the UI
+     * begins a continuous loop delegating option choices to helper methods until the user exits
+     * the program manually.</p>
+     *
+     * @author Adam McCarthy
+     * @version 1.0
+     */
     public class Driver {
         public static void main(String[] args) {
             Scanner input = new Scanner(System.in);
