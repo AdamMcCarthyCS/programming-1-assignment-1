@@ -135,8 +135,7 @@
          * @param input                 an instance of the {@code Scanner} class used to read user
          *                              input
          * @param carPurchaserHelper    an instance of the {@code CarPurchaserHelper} class used to
-         *                              call a utility method that computes the monthly hire-purchase
-         *                              cost
+         *                              call a utility method that computes the monthly cost
          */
         public static void calculateHP(Scanner input, CarPurchaserHelper carPurchaserHelper) {
             // Read in the values needed for the calculateHP method
@@ -174,8 +173,7 @@
          * @param input                 an instance of the {@code Scanner} class used to read user
          *                              input
          * @param carPurchaserHelper    an instance of the {@code CarPurchaserHelper} class used to
-         *                              call a utility method that computes the monthly hire-purchase
-         *                              cost
+         *                              call a utility method that computes the monthly cost
          */
         public static void calculatePCP(Scanner input, CarPurchaserHelper carPurchaserHelper) {
             // read in all the values needed for calling the pcpResultMonth method
@@ -211,8 +209,7 @@
          * @param input                 an instance of the {@code Scanner} class used to read user
          *                              input
          * @param carPurchaserHelper    an instance of the {@code CarPurchaserHelper} class used to
-         *                              call a utility method that computes the monthly hire-purchase
-         *                              cost
+         *                              call a utility method that computes the weekly cost
          */
         public static void calculateFuelCost(Scanner input, CarPurchaserHelper carPurchaserHelper) {
             // read in the kilometers travelled per week and fuel cost from the user
@@ -231,6 +228,20 @@
             System.out.println(fuelCostOutput);
         }
 
+        /**
+         * Collects information from the user to calculate the monthly repayments on a 0% interest
+         * car loan.
+         *
+         * <p>The method reads the car cost and term of repayment in months and uses the
+         * {@code calculateMonthlyCost} method of the {@code CarPurchaserHelper} to calculate the
+         * monthly repayments. The value is then formatted to 2dp using the {@code format} method
+         * of the {@code String} class and printed out to the user.</p>
+         *
+         * @param input                 an instance of the {@code Scanner} class used to read user
+         *                              input
+         * @param carPurchaserHelper    an instance of the {@code CarPurchaserHelper} class used to
+         *                              call a utility method that computes the monthly cost
+         */
         public static void calculateMonthlyCost(Scanner input, CarPurchaserHelper carPurchaserHelper) {
             // read in the car price and number of months from the user and store
             // these values will be passed as arguments to the fuelCostEstimator method
