@@ -41,7 +41,7 @@
             }
 
         /**
-         * This is the main menu loop of the program.
+         * Main menu loop of the program.
          *
          * <p>Each time the user selects an option the program passes control to one of the helper
          * methods through the {@code chooseMenuItem} method. The program continuously returns
@@ -82,8 +82,7 @@
         }
 
         /**
-         * This method delegates the users menu choice to the appropriate helper function of the
-         * class.
+         * Delegates user menu choice to the appropriate helper function of the class.
          *
          * <p>Using conditional logic the method passes control of the program to the appropriate
          * helper method. If the user has chosen 6, the method immediately returns 0 which exits
@@ -125,7 +124,7 @@
         }
 
         /**
-         * This method calculates the monthly payment for a higher purchase agreement
+         * Collects user information for calculation and printing of monthly hire-purchase payment.
          *
          * <p>The method prompts the user to enter the data needed to calculate the value of a
          * hire-purchase agreement monthly payment. Once it has all the relevant arguments
@@ -162,6 +161,22 @@
             System.out.println(hpMonthlyOutput);
         }
 
+        /**
+         * Collects user information for the calculation and printing of a personal contract plan
+         * monthly amount.
+         *
+         * <p>The method prompts the user to enter the data needed to calculate the value of a
+         * personal contract plan agreement monthly payment. Once it has all the relevant arguments
+         * the method calls the {@code pcpResultMonth} method of the {@code CarPurchaserHelper}
+         * class. The result is then formated into the standard convention for financial numerical
+         * amounts using the {@code format} method from the built in {@code String} class</p>
+         *
+         * @param input                 an instance of the {@code Scanner} class used to read user
+         *                              input
+         * @param carPurchaserHelper    an instance of the {@code CarPurchaserHelper} class used to
+         *                              call a utility method that computes the monthly hire-purchase
+         *                              cost
+         */
         public static void calculatePCP(Scanner input, CarPurchaserHelper carPurchaserHelper) {
             // read in all the values needed for calling the pcpResultMonth method
             // store these values in variables which will be passed as arguments to the method
