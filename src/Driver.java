@@ -201,6 +201,19 @@
             System.out.println(monthlyPaymentOutput);
         }
 
+        /**
+         * Collects information from the user to calculate and print an estimated weekly fuel cost.
+         *
+         * <p>The method prompts the user to enter distance and fuel cost values and passes these
+         * to the {@code fuelCostEstimator} method of the {@code CarPurchaserHelper} class. It then
+         * prints the estimated weekly cost to 2dp in the expected format for financial amounts.</p>
+         *
+         * @param input                 an instance of the {@code Scanner} class used to read user
+         *                              input
+         * @param carPurchaserHelper    an instance of the {@code CarPurchaserHelper} class used to
+         *                              call a utility method that computes the monthly hire-purchase
+         *                              cost
+         */
         public static void calculateFuelCost(Scanner input, CarPurchaserHelper carPurchaserHelper) {
             // read in the kilometers travelled per week and fuel cost from the user
             // this will be used to estimate the fuel cost per week
