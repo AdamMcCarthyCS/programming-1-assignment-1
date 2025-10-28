@@ -11,6 +11,16 @@
      * @version 1.0
      */
     public class Driver {
+        /**
+         * This is the entry point for the program.
+         *
+         * <p>The main method initialises an instance of the {@code Scanner} class and also the
+         * {@code CarPurchaserHelper} class. It begins the user interface by greeting the user and
+         * calling the {@code start} method.</p>. When the user chooses to exit the program a
+         * goodbye message is printed.
+         *
+         * @param args  optional command line arguments passed as an array of strings (unused)
+         */
         public static void main(String[] args) {
             Scanner input = new Scanner(System.in);
 
@@ -30,6 +40,17 @@
             System.out.println(goodbyeMessage);
             }
 
+        /**
+         * This is the main menu loop of the program.
+         *
+         * <p>Each time the user selects an option the program passes control to one of the helper
+         * methods through the {@code chooseMenuItem} method. The program continuously returns
+         * to this method until the user manually chooses to exit.</p>
+         *
+         * @param input                 an instance of the Scanner class used to read user input
+         * @param carPurchaserHelper    an instance of the CarPurchaserHelper class to be passed to
+         *                              the utility methods through the {@code chooseMenuItem} method
+         */
         public static void start(Scanner input, CarPurchaserHelper carPurchaserHelper) {
             // use sentinel value to start while loop
             int choice = -1;
