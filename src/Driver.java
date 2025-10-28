@@ -72,13 +72,33 @@
                 // Add newline after user choice for UI visual improvement
                 System.out.println();
 
+
                 choice = chooseMenuItem(choice, input, carPurchaserHelper);
+                // Notify the user of an invalid choice
                 if (choice == -1) {
                     System.out.println("That is not a valid menu choice");
                 }
             }
         }
 
+        /**
+         * This method delegates the users menu choice to the appropriate helper function of the
+         * class.
+         *
+         * <p>Using conditional logic the method passes control of the program to the appropriate
+         * helper method. If the user has chosen 6, the method immediately returns 0 which exits
+         * the program. If the user has not entered a valid integer the method retuns -1 which
+         * signals that an incorrect choice has been made.</p>
+         *
+         * @param userChoice            an integer value representing the users menu choice
+         * @param input                 an instance of the {@code Scanner} class which is passed to
+         *                              the relevant helper function
+         * @param carPurchaserHelper    an instance of the {@code CarPurchaserHelper} class which
+         *                              is passed to the relevant helper function
+         *
+         * @return                      an integer value which determines if the program loop
+         *                              continues, exits, or prints a warning
+         */
         public static int chooseMenuItem(int userChoice, Scanner input,
               CarPurchaserHelper carPurchaserHelper) {
             if (userChoice == 1) {
@@ -104,6 +124,21 @@
             return -1;
         }
 
+        /**
+         * This method calculates the monthly payment for a higher purchase agreement
+         *
+         * <p>The method prompts the user to enter the data needed to calculate the value of a
+         * hire-purchase agreement monthly payment. Once it has all the relevant arguments
+         * the method calls the {@code calculateHP} method of the {@code CarPurchaserHelper}
+         * class. The result is then formated into the standard convention for financial numerical
+         * amounts using the {@code format} method from the built in {@code String} class</p>
+         *
+         * @param input                 an instance of the {@code Scanner} class used to read user
+         *                              input
+         * @param carPurchaserHelper    an instance of the {@code CarPurchaserHelper} class used to
+         *                              call a utility method that computes the monthly hire-purchase
+         *                              cost
+         */
         public static void calculateHP(Scanner input, CarPurchaserHelper carPurchaserHelper) {
             // Read in the values needed for the calculateHP method
             // Store the values in variables which will be passed to the calculateHP method
