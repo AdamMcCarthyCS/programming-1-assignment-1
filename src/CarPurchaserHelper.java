@@ -189,16 +189,16 @@ public class CarPurchaserHelper {
     public String recommendCarType(String userLifestyle) {
         double carPrice;
         //TODO add 30% deposit for PCP and 35% for HP as on VW Example page
-        double deposit;
+        double depositHP; // variable used as an argument in the calculations below
+        double depositPCP;
         double kilometersPerWeek;
-        double gmfvPercent = 50.0d; // The car retains half its value
-        double costOfFuel = 1.76; // The cost of petrol at the time of writing
-        double annualInterestHP = 5.9d; // Taken from VW Website
-        double annualInterestPCP = 0.9d; // Taken from VW Website
-        //TODO fix depoist calculation by multiplying car cost by deposit percentage
-        double depositHP = 0.3;
-        double depositPCP = 0.3;
-        int numberOfRepaymentMonths = 48; // Taken from VW Website (See references)
+        double gmfvPercent = 50.0d; // the car retains half its value
+        double costOfFuel = 1.76; // the cost of petrol at the time of writing
+        double annualInterestHP = 5.9d; // taken from VW Website
+        double annualInterestPCP = 0.9d; // taken from VW Website
+        double depositHPpercentage = 0.35; // taken from VW Website
+        double depositPCPPercentage = 0.31; // taken from VW Website
+        int numberOfRepaymentMonths = 48; // taken from VW Website (See references)
         int termYears = numberOfRepaymentMonths / 12;
 
         // Calculate the following to return to user in recommendation
@@ -211,14 +211,20 @@ public class CarPurchaserHelper {
             // Store the name of the car and calcualte the deposit
             carName = "Volkswagen T-Roc R-Line";
             carPrice = 40460.00d;
+            depositHP = depositHPpercentage * carPrice;
+            depositPCP = depositPCPPercentage * carPrice;
             kilometersPerWeek = 400d;
         } else if (userLifestyle.equals("luxury")) {
             carName = "BMW i4 eDrive35 M Sport";
             carPrice = 74501.40d;
+            depositHP = depositHPpercentage * carPrice;
+            depositPCP = depositPCPPercentage * carPrice;
             kilometersPerWeek = 300d;
         } else if (userLifestyle.equals("adventure")) {
             carName = "Land Rover Defender";
             carPrice = 72825d;
+            depositHP = depositHPpercentage * carPrice;
+            depositPCP = depositPCPPercentage * carPrice;
             kilometersPerWeek = 1000d;
         } else {
             // warn user if they have not entered a valid lifestyle option
