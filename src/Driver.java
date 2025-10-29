@@ -1,6 +1,26 @@
     import java.util.Scanner;
 
+    /**
+     * This class is the entry point to the program.
+     *
+     * <p>The program starts in the {@code main} method. Using the {@code start} method the UI
+     * begins a continuous loop delegating option choices to helper methods until the user exits
+     * the program manually.</p>
+     *
+     * @author Adam McCarthy
+     * @version 1.0
+     */
     public class Driver {
+        /**
+         * This is the entry point for the program.
+         *
+         * <p>The main method initialises an instance of the {@code Scanner} class and also the
+         * {@code CarPurchaserHelper} class. It begins the user interface by greeting the user and
+         * calling the {@code start} method. When the user chooses to exit the program a
+         * goodbye message is printed.</p>
+         *
+         * @param args  optional command line arguments passed as an array of strings (unused)
+         */
         public static void main(String[] args) {
             Scanner input = new Scanner(System.in);
 
@@ -20,6 +40,17 @@
             System.out.println(goodbyeMessage);
             }
 
+        /**
+         * Main menu loop of the program.
+         *
+         * <p>Each time the user selects an option the program passes control to one of the helper
+         * methods through the {@code chooseMenuItem} method. The program continuously returns
+         * to this method until the user manually chooses to exit.</p>
+         *
+         * @param input                 an instance of the Scanner class used to read user input
+         * @param carPurchaserHelper    an instance of the CarPurchaserHelper class to be passed to
+         *                              the utility methods through the {@code chooseMenuItem} method
+         */
         public static void start(Scanner input, CarPurchaserHelper carPurchaserHelper) {
             // use sentinel value to start while loop
             int choice = -1;
@@ -41,13 +72,32 @@
                 // Add newline after user choice for UI visual improvement
                 System.out.println();
 
+
                 choice = chooseMenuItem(choice, input, carPurchaserHelper);
+                // Notify the user of an invalid choice
                 if (choice == -1) {
                     System.out.println("That is not a valid menu choice");
                 }
             }
         }
 
+        /**
+         * Delegates user menu choice to the appropriate helper function of the class.
+         *
+         * <p>Using conditional logic the method passes control of the program to the appropriate
+         * helper method. If the user has chosen 6, the method immediately returns 0 which exits
+         * the program. If the user has not entered a valid integer the method retuns -1 which
+         * signals that an incorrect choice has been made.</p>
+         *
+         * @param userChoice            an integer value representing the users menu choice
+         * @param input                 an instance of the {@code Scanner} class which is passed to
+         *                              the relevant helper function
+         * @param carPurchaserHelper    an instance of the {@code CarPurchaserHelper} class which
+         *                              is passed to the relevant helper function
+         *
+         * @return                      an integer value which determines if the program loop
+         *                              continues, exits, or prints a warning
+         */
         public static int chooseMenuItem(int userChoice, Scanner input,
               CarPurchaserHelper carPurchaserHelper) {
             if (userChoice == 1) {
@@ -73,6 +123,20 @@
             return -1;
         }
 
+        /**
+         * Collects user information for calculation and printing of monthly hire-purchase payment.
+         *
+         * <p>The method prompts the user to enter the data needed to calculate the value of a
+         * hire-purchase agreement monthly payment. Once it has all the relevant arguments
+         * the method calls the {@code calculateHP} method of the {@code CarPurchaserHelper}
+         * class. The result is then formated into the standard convention for financial numerical
+         * amounts using the {@code format} method from the built in {@code String} class</p>
+         *
+         * @param input                 an instance of the {@code Scanner} class used to read user
+         *                              input
+         * @param carPurchaserHelper    an instance of the {@code CarPurchaserHelper} class used to
+         *                              call a utility method that computes the monthly cost
+         */
         public static void calculateHP(Scanner input, CarPurchaserHelper carPurchaserHelper) {
             // Read in the values needed for the calculateHP method
             // Store the values in variables which will be passed to the calculateHP method
@@ -96,6 +160,21 @@
             System.out.println(hpMonthlyOutput);
         }
 
+        /**
+         * Collects user information for the calculation and printing of a personal contract plan
+         * monthly amount.
+         *
+         * <p>The method prompts the user to enter the data needed to calculate the value of a
+         * personal contract plan agreement monthly payment. Once it has all the relevant arguments
+         * the method calls the {@code pcpResultMonth} method of the {@code CarPurchaserHelper}
+         * class. The result is then formated into the standard convention for financial numerical
+         * amounts using the {@code format} method from the built in {@code String} class</p>
+         *
+         * @param input                 an instance of the {@code Scanner} class used to read user
+         *                              input
+         * @param carPurchaserHelper    an instance of the {@code CarPurchaserHelper} class used to
+         *                              call a utility method that computes the monthly cost
+         */
         public static void calculatePCP(Scanner input, CarPurchaserHelper carPurchaserHelper) {
             // read in all the values needed for calling the pcpResultMonth method
             // store these values in variables which will be passed as arguments to the method
@@ -120,6 +199,18 @@
             System.out.println(monthlyPaymentOutput);
         }
 
+        /**
+         * Collects information from the user to calculate and print an estimated weekly fuel cost.
+         *
+         * <p>The method prompts the user to enter distance and fuel cost values and passes these
+         * to the {@code fuelCostEstimator} method of the {@code CarPurchaserHelper} class. It then
+         * prints the estimated weekly cost to 2dp in the expected format for financial amounts.</p>
+         *
+         * @param input                 an instance of the {@code Scanner} class used to read user
+         *                              input
+         * @param carPurchaserHelper    an instance of the {@code CarPurchaserHelper} class used to
+         *                              call a utility method that computes the weekly cost
+         */
         public static void calculateFuelCost(Scanner input, CarPurchaserHelper carPurchaserHelper) {
             // read in the kilometers travelled per week and fuel cost from the user
             // this will be used to estimate the fuel cost per week
@@ -137,6 +228,20 @@
             System.out.println(fuelCostOutput);
         }
 
+        /**
+         * Collects information from the user to calculate the monthly repayments on a 0% interest
+         * car loan.
+         *
+         * <p>The method reads the car cost and term of repayment in months and uses the
+         * {@code calculateMonthlyCost} method of the {@code CarPurchaserHelper} to calculate the
+         * monthly repayments. The value is then formatted to 2dp using the {@code format} method
+         * of the {@code String} class and printed out to the user.</p>
+         *
+         * @param input                 an instance of the {@code Scanner} class used to read user
+         *                              input
+         * @param carPurchaserHelper    an instance of the {@code CarPurchaserHelper} class used to
+         *                              call a utility method that computes the monthly cost
+         */
         public static void calculateMonthlyCost(Scanner input, CarPurchaserHelper carPurchaserHelper) {
             // read in the car price and number of months from the user and store
             // these values will be passed as arguments to the fuelCostEstimator method
@@ -156,6 +261,21 @@
             System.out.println(monthlyCostOutput);
         }
 
+        /**
+         * Collects information from the user to recommend a car purchase that compliments their
+         * lifestyle
+         *
+         *<p>The method offers the user a choice between family, luxury, and adventure lifestyle
+         * choices. It then reads in the users choice and calls the {@code recommendCarType}
+         * method from the {@code CarPurchaserHelper} class and prints a summarised
+         * recommendation including hire-purchase, personal contract plan, finance plan, and
+         * estimated weekly fuel costs.</p>
+         *
+         * @param input                 an instance of the {@code Scanner} class used to read user
+         *                              input
+         * @param carPurchaserHelper    an instance of the {@code CarPurchaserHelper} class used to
+         *                              call a utility method that makes a purchase recommendation
+         */
         public static void recommendCarChoice(Scanner input, CarPurchaserHelper carPurchaserHelper) {
             // prompt the user of the car recommendation categories
             System.out.println("Please enter a lifestyle choice to get your car recommendation!");
