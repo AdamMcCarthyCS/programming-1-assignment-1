@@ -8,8 +8,7 @@
  * @version 1.0
  */
 public class CarPurchaserHelper {
-//This will be given to students,
-// ToDO: explain it in the reflection
+
     /**
      * Calculates the monthly payment for a personal contract plan.
      *
@@ -135,10 +134,10 @@ public class CarPurchaserHelper {
      * @return                  the personal contract plan monthly payment
      */
     public double calculateMonthlyCost(double carPrice, int numberOfMonths) {
-        /*
-        Divide the car cost by the number of months. Since carPrice is a double the result will
-        cast to a double despite months being an int.
-        */
+            /*
+            Divide the car cost by the number of months. Since carPrice is a double the result will
+            cast to a double despite months being an int.
+            */
         double monthlyCost = carPrice / numberOfMonths;
 
         return monthlyCost;
@@ -234,7 +233,7 @@ public class CarPurchaserHelper {
         hpMonthlyPayment = calculateHP(carPrice, depositHP, annualInterestHP, termYears);
         // calculate the PCP monthly payment using the PCP deposit and annual interest
         pcpMonthlyPayment = pcpResultMonth(carPrice, depositPCP, annualInterestPCP, termYears,
-            gmfvPercent);
+                gmfvPercent);
         // calculate ordinary finance monthly payment
         ordinaryFinanceMonthlyCost = calculateMonthlyCost(carPrice, numberOfRepaymentMonths);
         // calculate weekly fuel cost
@@ -244,31 +243,31 @@ public class CarPurchaserHelper {
 
         // format carPrice to print to 2dp.
         String recommendationLine = String.format("The car we recommend for you is: " + carName + "\n"
-            + "Car price: €%.2f\n", carPrice)
-            + "Options:\n";
+                + "Car price: €%.2f\n", carPrice)
+                + "Options:\n";
         // format hpMonthlyPayment and deposit to print to 2dp
         // format numberOfRepaymentMonths and annualInterestPCP to print as integers
         String hpLine = String.format("1) HP Agreement: €%.2f for %d months at %.2f%% APR, " +
-            "with initial deposit of €%.2f\n", hpMonthlyPayment, numberOfRepaymentMonths,
-            annualInterestHP, depositHP);
+                        "with initial deposit of €%.2f\n", hpMonthlyPayment, numberOfRepaymentMonths,
+                annualInterestHP, depositHP);
         // format all double values to 2dp
         String pcpLine = String.format("2) PCP Agreement: €%.2f for %d months at %.2f%% APR, " +
-            "with initial deposit of €%.2f and GMFV of %.2f%%\n", pcpMonthlyPayment,
-            numberOfRepaymentMonths, annualInterestPCP, depositPCP, gmfvPercent);
+                        "with initial deposit of €%.2f and GMFV of %.2f%%\n", pcpMonthlyPayment,
+                numberOfRepaymentMonths, annualInterestPCP, depositPCP, gmfvPercent);
         // format ordinaryFinanceMonthlyCost to 2dp
         // format numberOfRepaymentMonths as an integer
         String ordinaryFinancingLine = String.format("3) Ordinary financing: €%.2f for "
-            + "%d months\n", ordinaryFinanceMonthlyCost, numberOfRepaymentMonths);
+                + "%d months\n", ordinaryFinanceMonthlyCost, numberOfRepaymentMonths);
         // format all doubles to 2dp
         String fuelCostLine = String.format("Estimated weekly fuel cost based on "
-            + "%.2f kilometers/pw at current fuel price of €%.2f "
-            + "per liter is €%.2f", kilometersPerWeek, costOfFuel, weeklyFuelCost);
+                + "%.2f kilometers/pw at current fuel price of €%.2f "
+                + "per liter is €%.2f", kilometersPerWeek, costOfFuel, weeklyFuelCost);
 
         // concatenate the above strings to create the message to be returned
         String message = recommendationLine + hpLine + pcpLine + ordinaryFinancingLine
-            + fuelCostLine;
+                + fuelCostLine;
 
-            return message;
+        return message;
     }
 
 }
