@@ -106,7 +106,7 @@ public class CarPurchaserHelper {
     }
 
     /**
-     * Return a welcome message to be printed out to the user
+     * Returns a welcome message to be printed out to the user
      */
     public String printWelcomeMessage() {
         // return a string literal with welcome message

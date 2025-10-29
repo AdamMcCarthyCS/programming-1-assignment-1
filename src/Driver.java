@@ -16,8 +16,8 @@
          *
          * <p>The main method initialises an instance of the {@code Scanner} class and also the
          * {@code CarPurchaserHelper} class. It begins the user interface by greeting the user and
-         * calling the {@code start} method.</p>. When the user chooses to exit the program a
-         * goodbye message is printed.
+         * calling the {@code start} method. When the user chooses to exit the program a
+         * goodbye message is printed.</p>
          *
          * @param args  optional command line arguments passed as an array of strings (unused)
          */
