@@ -1,3 +1,12 @@
+/**
+ * This is a class which contains utility methods to perform program calculations.
+ *
+ * <p>All mathematical calculations used in the program are contained in this class. The
+ * methods are called through the user interface in the driver class.</p>
+ *
+ * @author Adam McCarthy
+ * @version 1.0
+ */
 public class CarPurchaserHelper {
 //This will be given to students,
 // ToDO: explain it in the reflection
@@ -45,7 +54,7 @@ public class CarPurchaserHelper {
         return  monthlyPayment;
     }
     /**
-     * Return a welcome message to the user
+     * Return a welcome message to be printed out to the user
      */
     public String printWelcomeMessage() {
         // return a string literal with welcome message
@@ -53,7 +62,7 @@ public class CarPurchaserHelper {
     }
 
     /**
-     * Return a goodbye message to the user
+     * Returns a goodbye message to be printed out to the user
      */
     public String printGoodbyeMessage() {
         // return a string literal with a goodbye message
@@ -61,6 +70,11 @@ public class CarPurchaserHelper {
     }
 
     /**
+     * Calculates the monthly payment for a 0% finance purchase of a car over a fixed term.
+     *
+     * <p>This method reads in the car value and duration of the loan in months and returns the
+     * monthly repayment the user will need to make on the purchase. The repayment is calculated
+     * using: <pre>monthly repayment = total car value / term of agreement in months</pre></p>
      *
      * @param carPrice          a double amount in euros and cents which represents the car price
      * @param numberOfMonths    an integer number of months over which the repayments are made
@@ -71,7 +85,6 @@ public class CarPurchaserHelper {
         /*
         Divide the car cost by the number of months. Since carPrice is a double the result will
         cast to a double despite months being an int.
-        TODO: see if the precision matters later. Maybe you can format it if you print the value?
         */
         double monthlyCost = carPrice / numberOfMonths;
 
@@ -99,6 +112,8 @@ public class CarPurchaserHelper {
         double costOfFuel = 1.76; // The cost of petrol at the time of writing
         double annualInterestHP = 5.9d; // Taken from VW Website
         double annualInterestPCP = 0.9d; // Taken from VW Website
+        double depositHP = 0.3;
+        double depositPCP = 0.3;
         int numberOfRepaymentMonths = 48; // Taken from VW Website (See references)
         int termYears = numberOfRepaymentMonths / 12;
 
@@ -112,25 +127,23 @@ public class CarPurchaserHelper {
             // Store the name of the car and calcualte the deposit
             carName = "Volkswagen T-Roc R-Line";
             carPrice = 40460.00d;
-            deposit = carPrice * 0.3d; // 30% of value
-            kilometersPerWeek = 300;
+            kilometersPerWeek = 400d;
         } else if (userLifestyle.equals("luxury")) {
             carName = "BMW BWM i4 eDrive35 M Sport";
             carPrice = 74501.40d;
-            deposit = carPrice * 0.3d; // 30% of value
-            kilometersPerWeek = 300;
+            kilometersPerWeek = 300d;
         } else if (userLifestyle.equals("adventure")) {
             carName = "Land Rover Defender";
             carPrice = 72825d;
-            deposit = carPrice * 0.3d; // 30% of value
-            kilometersPerWeek = 1000;
+            kilometersPerWeek = 1000d;
         } else {
+            // warn user if they have not entered a valid lifestyle option
             return "Invalid lifestyle option!";
         }
-        // calculate the HP monthly payment
-        hpMonthlyPayment = calculateHP(carPrice, deposit, annualInterestHP, termYears);
-        // calculate the PCP monthly Payment
-        pcpMonthlyPayment = pcpResultMonth(carPrice, deposit, annualInterestPCP, termYears,
+        // calculate the HP monthly payment using the HP deposit and annual interest
+        hpMonthlyPayment = calculateHP(carPrice, depositHP, annualInterestHP, termYears);
+        // calculate the PCP monthly payment using the PCP deposit and annual interest
+        pcpMonthlyPayment = pcpResultMonth(carPrice, depositPCP, annualInterestPCP, termYears,
             gmfvPercent);
         // calculate ordinary finance monthly payment
         ordinaryFinanceMonthlyCost = calculateMonthlyCost(carPrice, numberOfRepaymentMonths);
@@ -147,11 +160,11 @@ public class CarPurchaserHelper {
         // format numberOfRepaymentMonths and annualInterestPCP to print as integers
         String hpLine = String.format("1) HP Agreement: €%.2f for %d months at %.2f%% APR, " +
             "with initial deposit of €%.2f\n", hpMonthlyPayment, numberOfRepaymentMonths,
-            annualInterestHP, deposit);
+            annualInterestHP, depositHP);
         // format all double values to 2dp
         String pcpLine = String.format("2) PCP Agreement: €%.2f for %d months at %.2f%% APR, " +
             "with initial deposit of €%.2f and GMFV of %.2f%%\n", pcpMonthlyPayment,
-            numberOfRepaymentMonths, annualInterestPCP, deposit, gmfvPercent);
+            numberOfRepaymentMonths, annualInterestPCP, depositPCP, gmfvPercent);
         // format ordinaryFinanceMonthlyCost to 2dp
         // format numberOfRepaymentMonths as an integer
         String ordinaryFinancingLine = String.format("3) Ordinary financing: €%.2f for "
