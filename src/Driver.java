@@ -143,9 +143,9 @@ public class Driver {
         // Store the values in variables which will be passed to the calculateHP method
         // as arguments when it is called
 
-        System.out.print("Enter car price: ");
+        System.out.print("Enter car price (€): ");
         double hpPrice = input.nextDouble();
-        System.out.print("Enter deposit: ");
+        System.out.print("Enter deposit) (€: ");
         double hpDeposit = input.nextDouble();
         System.out.print("Enter annual interest rate (%): ");
         double hpInterest = input.nextDouble();
@@ -179,15 +179,15 @@ public class Driver {
     public static void calculatePCP(Scanner input, CarPurchaserHelper carPurchaserHelper) {
         // read in all the values needed for calling the pcpResultMonth method
         // store these values in variables which will be passed as arguments to the method
-        System.out.print("Enter car price: ");
+        System.out.print("Enter car price (€): ");
         double pcpPrice = input.nextDouble();
-        System.out.print("Enter the deposit: ");
+        System.out.print("Enter the deposit (€): ");
         double deposit = input.nextDouble();
         System.out.print("Enter the annual interest rate (%): ");
         double annualInterest = input.nextDouble();
         System.out.print("Enter the term in years: ");
         int termInYears = input.nextInt();
-        System.out.print("Enter the GMFV percent: ");
+        System.out.print("Enter the GMFV percentage as an integer: ");
         int gmfvPercent = input.nextInt();
 
         // pass the values as arguments to the pcpResultMonth method and store t
@@ -217,7 +217,7 @@ public class Driver {
         // this will be used to estimate the fuel cost per week
         System.out.print("Enter estimated kilometers traveled per week: ");
         double kilometersPerWeek = input.nextDouble();
-        System.out.print("Enter the cost of fuel per liter: ");
+        System.out.print("Enter the cost of fuel per liter in euros and cents: ");
         double costOfFuel = input.nextDouble();
 
         // print out the fuel cost per week
@@ -246,7 +246,7 @@ public class Driver {
     public static void calculateMonthlyCost(Scanner input, CarPurchaserHelper carPurchaserHelper) {
         // read in the car price and number of months from the user and store
         // these values will be passed as arguments to the fuelCostEstimator method
-        System.out.print("Enter the car price: ");
+        System.out.print("Enter the car price (€): ");
         double carPrice = input.nextDouble();
         System.out.print("Enter the term of the repayments in months: ");
         int numberOfMonths = input.nextInt();
