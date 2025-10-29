@@ -172,10 +172,19 @@ public class CarPurchaserHelper {
     /**
      * Makes a car recommendation based on the users lifestyle.
      *
+     *<p>The method reads in a user lifestyle of 'family', 'luxury', or 'adventure' and generates a
+     * car recommendation string which is printed to the user.</p>
      *
+     * <p>Monthly payments on a personal contract plan are calculated using {@code pcpResultMonth},
+     * and also on a hire purchase agreement using {@code calculateHP}. The method also
+     * provides an estimate of a 0% interest repayment plan calculation using
+     * {@code fuelCostEstimator} and an estimate of weekly fuel costs using
+     * {@code calculateMonthly cost}. All values are returned to 2dp using the {@code format} method
+     * of the {@code String} class</p>
      *
-     * @param userLifestyle
-     * @return
+     * @param userLifestyle     A choice of lifestyle which informs the car suggested to the user
+     * @return                  A string detailing options of hire purchase, personal contract plan,
+     *                          and fuel costs based on the users lifestyle
      */
     public String recommendCarType(String userLifestyle) {
         double carPrice;
@@ -204,7 +213,7 @@ public class CarPurchaserHelper {
             carPrice = 40460.00d;
             kilometersPerWeek = 400d;
         } else if (userLifestyle.equals("luxury")) {
-            carName = "BMW BWM i4 eDrive35 M Sport";
+            carName = "BMW i4 eDrive35 M Sport";
             carPrice = 74501.40d;
             kilometersPerWeek = 300d;
         } else if (userLifestyle.equals("adventure")) {
