@@ -10,6 +10,30 @@
 public class CarPurchaserHelper {
 //This will be given to students,
 // ToDO: explain it in the reflection
+    /**
+     * Calculates the monthly payment for a personal contract plan.
+     *
+     * <p>This method takes car price, initial deposit, annual interest rate, and repayment term in
+     * years and computes the monthly repayment for a purchased vehicle.</p>
+     * <br>
+     * <p>The monthly interest rate is calculated using:</p>
+     * <pre>monthly interest rate = annual interest / 12 months</pre>
+     * <p>The general formula for the hire purchase value is:</p>
+     * <pre>hire purchase principle = monthly payment * (1+r)^n</pre>
+     * <p>The (1+r)^n term is for calculating the interest that compounds over n months which we
+     * call the {@code factor} here. This formula is rearranged to make the monthly payment the
+     * subject of the formula. This gives the final expression:</p>
+     *
+     * <pre>monthly payment = hire purchase principle * monthly interest rate * factor / (factor - 1)</pre>
+     *
+     * @param carPrice          The price of the car in euros and cents
+     * @param deposit           The initial deposit payed when purchasing the vehicle
+     * @param annualInterest    The percentage interest written as an integer
+     * @param termYears         The number of years the payment will take place over
+     *
+     * @return                  The monthly repayment value for the personal contract plan in euros
+     *                          and cents
+     */
     public double calculateHP(double carPrice, double deposit, double annualInterest, int termYears) {
         double amountToFinance = carPrice - deposit;
         double monthlyInterestRate = (annualInterest / 100) / 12;
@@ -28,8 +52,35 @@ public class CarPurchaserHelper {
             return monthlyPayment;
         }
     }
-    //This will be given to students,
-// ToDO: explain it in the reflection
+
+    /**
+     * Calculates the monthly payment for a personal contract plan.
+     *
+     * <p>This method takes car price, initial deposit, annual interest rate, repayment term in
+     * years, and guaranteed minimum future value at the end of the term and computes the monthly
+     * repayment for a purchased vehicle.</p>
+     * <br>
+     * <p>The guaranteed minimum future value of the vehicle is calculated using</p>
+     * <pre>car guaranteed minimum future value = car price * (GMFV percentage / 100)</pre>
+     * <p>The monthly interest rate is calculated using:</p>
+     * <pre>monthly interest rate = annual interest / 12 months</pre>
+     * <p>The general formula for the loan is:</p>
+     * <pre>loan principle = monthly payment * (1+r)^n</pre>
+     * <p>The (1+r)^n term is for calculating the interest that compounds over n months which we
+     * call the {@code factor} here. This formula is rearranged to make the monthly payment the
+     * subject of the formula. This gives the final expression:</p>
+     *
+     * <pre>monthly payment = amountToFinance * monthly interest rate * factor / (factor - 1)</pre>
+     *
+     * @param carPrice          The price of the car in euros and cents
+     * @param deposit           The initial deposit payed when purchasing the vehicle
+     * @param annualInterest    The percentage interest written as an integer
+     * @param termYears         The number of years the payment will take place over
+     * @param gmfvPercent       The guaranteed minimum future value in euros and cents
+     *
+     * @return                  The monthly repayment value for the personal contract plan in euros
+     *                          and cents
+     */
     public double pcpResultMonth(double carPrice, double deposit, double annualInterest, int termYears, double gmfvPercent) {
         double gmfv = carPrice * (gmfvPercent / 100);
         double amountToFinance = carPrice - deposit - gmfv;
@@ -53,6 +104,7 @@ public class CarPurchaserHelper {
 
         return  monthlyPayment;
     }
+
     /**
      * Return a welcome message to be printed out to the user
      */
@@ -74,12 +126,13 @@ public class CarPurchaserHelper {
      *
      * <p>This method reads in the car value and duration of the loan in months and returns the
      * monthly repayment the user will need to make on the purchase. The repayment is calculated
-     * using: <pre>monthly repayment = total car value / term of agreement in months</pre></p>
+     * using:</p>
+     * <pre>monthly repayment = total car value / term of agreement in months</pre>
      *
      * @param carPrice          a double amount in euros and cents which represents the car price
      * @param numberOfMonths    an integer number of months over which the repayments are made
      *
-     * @return                  the amount the user will have to rou
+     * @return                  the personal contract plan monthly payment
      */
     public double calculateMonthlyCost(double carPrice, int numberOfMonths) {
         /*
@@ -116,6 +169,14 @@ public class CarPurchaserHelper {
         return weeklyFuelCost;
     }
 
+    /**
+     * Makes a car recommendation based on the users lifestyle.
+     *
+     *
+     *
+     * @param userLifestyle
+     * @return
+     */
     public String recommendCarType(String userLifestyle) {
         double carPrice;
         //TODO add 30% deposit for PCP and 35% for HP as on VW Example page
@@ -125,6 +186,7 @@ public class CarPurchaserHelper {
         double costOfFuel = 1.76; // The cost of petrol at the time of writing
         double annualInterestHP = 5.9d; // Taken from VW Website
         double annualInterestPCP = 0.9d; // Taken from VW Website
+        //TODO fix depoist calculation by multiplying car cost by deposit percentage
         double depositHP = 0.3;
         double depositPCP = 0.3;
         int numberOfRepaymentMonths = 48; // Taken from VW Website (See references)
@@ -192,8 +254,6 @@ public class CarPurchaserHelper {
             + fuelCostLine;
 
             return message;
-
-
     }
 
 }
