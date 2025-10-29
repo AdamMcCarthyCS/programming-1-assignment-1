@@ -91,7 +91,20 @@ public class CarPurchaserHelper {
         return monthlyCost;
     }
 
-
+    /**
+     * Estimates the cost of fuel based on the number of kilometers driven per week
+     *
+     * <p>This method takes kilometers per week and fuel price as inputs and calculates the users
+     * estimated weekly fuel use using:</p>
+     * <pre>liters of fuel used per week = kilometers per week / 100 * 6</pre>
+     * <p>The cost of this fuel use is then calculated using:</p>
+     * <pre>weekly fuel cost = cost of fuel * litres of fuel used per week</pre>
+     *
+     * @param kilometersPerWeek     the number of kilometers the user will travel weekly
+     * @param costOfFuel            the cost of fuel in euros and cents
+     *
+     * @return                      a weekly estimated fuel cost in euros and cents
+     */
     public double fuelCostEstimator(double kilometersPerWeek, double costOfFuel) {
         // calculate the number of liters used per week
         double litersPerWeek = kilometersPerWeek / 100 * 6;
