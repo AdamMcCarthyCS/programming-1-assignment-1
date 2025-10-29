@@ -261,6 +261,21 @@
             System.out.println(monthlyCostOutput);
         }
 
+        /**
+         * Collects information from the user to recommend a car purchase that compliments their
+         * lifestyle
+         *
+         *<p>The method offers the user a choice between family, luxury, and adventure lifestyle
+         * choices. It then reads in the users choice and calls the {@code recommendCarType}
+         * method from the {@code CarPurchaserHelper} class and prints a summarised
+         * recommendation including hire-purchase, personal contract plan, finance plan, and
+         * estimated weekly fuel costs.</p>
+         *
+         * @param input                 an instance of the {@code Scanner} class used to read user
+         *                              input
+         * @param carPurchaserHelper    an instance of the {@code CarPurchaserHelper} class used to
+         *                              call a utility method that makes a purchase recommendation
+         */
         public static void recommendCarChoice(Scanner input, CarPurchaserHelper carPurchaserHelper) {
             // prompt the user of the car recommendation categories
             System.out.println("Please enter a lifestyle choice to get your car recommendation!");
