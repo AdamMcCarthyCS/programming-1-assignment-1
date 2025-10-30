@@ -105,6 +105,23 @@ public class CarPurchaserHelper {
     }
 
     /**
+     * Calculates the banana payment due at end of PCP payment term
+     *
+     * <p>This method calculates the baloon payment due at the end of the personal contract
+     * plan if the user wishes to keep the car. The calculation is as follows:</p>
+     * <pre>baloon payment = car value * (guaranteed minimum future value percentage / 100)</pre>
+     *
+     * @param carValue      the purchase price of the vehicle
+     * @param gmfv          the guartanteed minimum future value as a percentage
+     *
+     * @return              the amount the user will need to pay at the end of the contract to
+     *                      keep the vehicle
+     */
+    public double calculateBananaPayment(double carValue, double gmfv){
+        return carValue * gmfv / 100;
+    }
+
+    /**
      * Returns a welcome message to be printed out to the user
      */
     public String printWelcomeMessage() {
