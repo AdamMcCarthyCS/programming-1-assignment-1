@@ -1,6 +1,6 @@
 
-Name :
-Student Number:
+Name :              Adam McCarthy
+Student Number:     XXXXXXXX (redacted for Github version)
 
 Brief description of piece (1 or 2 sentences MAX):
 ===================================================
@@ -38,22 +38,25 @@ user said the cars value was -€30000 or the term was -24 months. I had the ide
 values in an array and having an extra method for looping over these values and returning a true/
 false depending on whether the input the user gave was valid or not. The reason i did not do this
 was I felt it would make the program workings more obscure and coupled for others to read and 
-understand. I did provide some functionality to validate that the user made the correct choices in 
+understand. There is also an issue if the user is to enter text when numerical values are expected.
+I would have solved this by using the instanceOf method to check the user has entered an Integer or Double
+but, we have not yet covered this in the course, and I was trying to stick to using what is expected.
+    I did provide some functionality to validate that the user made the correct choices in 
 the main looping menu, and also entering the string in the car recommendation method. This was 
 to cover the inevitable typos that happen when people interact with a UI.
 
 Another problem of the program is that I have used the format method of the string class to round 
 the numerical values within the string returned from the car recommendation method of the 
-CarPurchaserHelper class. I had to round the same calculations in the driver class for the user had
-chosen other menu options such as Calclate HP, and Calculate PCP so all the output would match in
-how it was formated. This feels like violating DRY (Dont Repeat Yourself). I could have gotten around
-this by using this rounding method I found at (1) to round the outputs of the methods to two decimal
-places. 
+CarPurchaserHelper class. I had to round the same calculations in the driver class where the user 
+chooses other menu options such as Calclate HP, and Calculate PCP. This was to ensure output would 
+match in how it was formated everywhere in the program. This feels like violating 
+DRY (Don't Repeat Yourself). I could have gotten around this by using this rounding method I found 
+at (1) to round the outputs of the methods to two decimal places: 
     value rounded to 2 dp = Math.round(a * 100.0) / 100.0;
 Math.round rounds a double to the nearest long value (2) so by multiplying by 100 you move the decimal
-place to digits to the right (e.g 23.445 -> 2344.5) then round it (2345) the divide by 100 to get
-(23.45).
-    In the end I chose to use the String method as it is comes from one of the few Classes that has
+place two digits to the right (e.g 23.445 -> 2344.5) then round it (2345) the divide by 100 to get
+(23.45). Casting this back to a double is fine when the long value is not very large.
+    In the end I chose to use the String method as it comes from one of the few Classes that has
 been covered in the course to date, and it also forced me to learn how to format numbers in text 
 with that ugly C % sign syntax. Aside: (Oh, how I miss you Python f-strings!)
 
