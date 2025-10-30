@@ -194,10 +194,15 @@ public class Driver {
         // the return value for printing to the user
         double monthlyPayment = carPurchaserHelper.pcpResultMonth(pcpPrice, deposit,
                 annualInterest, termInYears, gmfvPercent);
+        double bananaPaymentAmount = carPurchaserHelper.calculateBananaPayment(pcpPrice, gmfvPercent);
         // format the monthlyPayment to print to 2dp
         String monthlyPaymentOutput = String.format("The monthly payment is €%.2f",monthlyPayment);
+        // calculate banana payment and format output to 2dp
+        String bananaPaymentOutput = String.format("A payment of €%.2f is required to own the car at " +
+                "the end of the contract term.", bananaPaymentAmount);
         // print the monthly payment
         System.out.println(monthlyPaymentOutput);
+        System.out.println(bananaPaymentOutput);
     }
 
     /**
