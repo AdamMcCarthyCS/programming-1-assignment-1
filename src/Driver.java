@@ -87,7 +87,7 @@ public class Driver {
      *
      * <p>Using conditional logic the method passes control of the program to the appropriate
      * helper method. If the user has chosen 6, the method immediately returns 0 which exits
-     * the program. If the user has not entered a valid integer the method retuns -1 which
+     * the program. If the user has not entered a valid integer the method returns -1 which
      * signals that an incorrect choice has been made.</p>
      *
      * @param userChoice            an integer value representing the users menu choice
@@ -195,16 +195,16 @@ public class Driver {
         double monthlyPayment = carPurchaserHelper.pcpResultMonth(pcpPrice, deposit,
                 annualInterest, termInYears, gmfvPercent);
         // calculate banana payment amount
-        double bananaPaymentAmount = carPurchaserHelper.calculateBananaPayment(pcpPrice, gmfvPercent);
+        double balloonPaymentAmount = carPurchaserHelper.calculateBalloonPayment(pcpPrice, gmfvPercent);
         // format the monthlyPayment to print to 2dp
         String monthlyPaymentOutput = String.format("The monthly payment is €%.2f",monthlyPayment);
         // calculate banana payment and format output to 2dp
-        String bananaPaymentOutput = String.format("A payment of €%.2f is required to own the car at " +
-                "the end of the contract term.", bananaPaymentAmount);
+        String balloonPaymentOutput = String.format("A payment of €%.2f is required to own the car at " +
+                "the end of the contract term.", balloonPaymentAmount);
         // print the monthly payment
         System.out.println(monthlyPaymentOutput);
         // print the banana payment
-        System.out.println(bananaPaymentOutput);
+        System.out.println(balloonPaymentOutput);
     }
 
     /**
@@ -259,7 +259,7 @@ public class Driver {
         int numberOfMonths = input.nextInt();
 
         // calculate the monthly repayment by passing the variables above as arguments
-        // to the calcualteMonthlyCost method and store the returned value
+        // to the calculateMonthlyCost method and store the returned value
         double monthlyCost = carPurchaserHelper.calculateMonthlyCost(carPrice,
                 numberOfMonths);
         // format the monthly cost to print to 2dp

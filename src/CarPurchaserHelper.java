@@ -17,16 +17,16 @@ public class CarPurchaserHelper {
      * <br>
      * <p>The monthly interest rate is calculated using:</p>
      * <pre>monthly interest rate = annual interest / 12 months</pre>
-     * <p>The general formula for the hire purchase value is:</p>
-     * <pre>hire purchase principle = monthly payment * (1+r)^n</pre>
+     * <p>The general formula for the hire-purchase value is:</p>
+     * <pre>hire-purchase principle = monthly payment * (1+r)^n</pre>
      * <p>The (1+r)^n term is for calculating the interest that compounds over n months which we
      * call the {@code factor} here. This formula is rearranged to make the monthly payment the
      * subject of the formula. This gives the final expression:</p>
      *
-     * <pre>monthly payment = hire purchase principle * monthly interest rate * factor / (factor - 1)</pre>
+     * <pre>monthly payment = hire-purchase principle * monthly interest rate * factor / (factor - 1)</pre>
      *
      * @param carPrice          The price of the car in euros and cents
-     * @param deposit           The initial deposit payed when purchasing the vehicle
+     * @param deposit           The initial deposit paid when purchasing the vehicle
      * @param annualInterest    The percentage interest written as an integer
      * @param termYears         The number of years the payment will take place over
      *
@@ -72,7 +72,7 @@ public class CarPurchaserHelper {
      * <pre>monthly payment = amountToFinance * monthly interest rate * factor / (factor - 1)</pre>
      *
      * @param carPrice          The price of the car in euros and cents
-     * @param deposit           The initial deposit payed when purchasing the vehicle
+     * @param deposit           The initial deposit paid when purchasing the vehicle
      * @param annualInterest    The percentage interest written as an integer
      * @param termYears         The number of years the payment will take place over
      * @param gmfvPercent       The guaranteed minimum future value in euros and cents
@@ -107,17 +107,17 @@ public class CarPurchaserHelper {
     /**
      * Calculates the banana payment due at end of PCP payment term
      *
-     * <p>This method calculates the baloon payment due at the end of the personal contract
+     * <p>This method calculates the balloon payment due at the end of the personal contract
      * plan if the user wishes to keep the car. The calculation is as follows:</p>
-     * <pre>baloon payment = car value * (guaranteed minimum future value percentage / 100)</pre>
+     * <pre>balloon payment = car value * (guaranteed minimum future value percentage / 100)</pre>
      *
      * @param carValue      the purchase price of the vehicle
-     * @param gmfv          the guartanteed minimum future value as a percentage
+     * @param gmfv          the guaranteed minimum future value as a percentage
      *
      * @return              the amount the user will need to pay at the end of the contract to
      *                      keep the vehicle
      */
-    public double calculateBananaPayment(double carValue, double gmfv){
+    public double calculateBalloonPayment(double carValue, double gmfv){
         return carValue * gmfv / 100;
     }
 
@@ -186,20 +186,20 @@ public class CarPurchaserHelper {
     }
 
     /**
-     * Makes a car recommendation based on the users lifestyle.
+     * Makes a car recommendation based on the user's lifestyle.
      *
      *<p>The method reads in a user lifestyle of 'family', 'luxury', or 'adventure' and generates a
      * car recommendation string which is printed to the user.</p>
      *
      * <p>Monthly payments on a personal contract plan are calculated using {@code pcpResultMonth},
-     * and also on a hire purchase agreement using {@code calculateHP}. The method also
+     * and also on a hire-purchase agreement using {@code calculateHP}. The method also
      * provides an estimate of a 0% interest repayment plan calculation using
      * {@code fuelCostEstimator} and an estimate of weekly fuel costs using
      * {@code calculateMonthly cost}. All values are returned to 2dp using the {@code format} method
      * of the {@code String} class</p>
      *
      * @param userLifestyle     A choice of lifestyle which informs the car suggested to the user
-     * @return                  A string detailing options of hire purchase, personal contract plan,
+     * @return                  A string detailing options of hire-purchase, personal contract plan,
      *                          and fuel costs based on the users lifestyle
      */
     public String recommendCarType(String userLifestyle) {
@@ -224,7 +224,7 @@ public class CarPurchaserHelper {
         double weeklyFuelCost;
         String carName;
         if (userLifestyle.equals("family")) {
-            // Store the name of the car and calcualte the deposit
+            // Store the name of the car and calculate the deposit
             carName = "Volkswagen T-Roc R-Line";
             carPrice = 40460.00d;
             depositHP = depositHPpercentage * carPrice;
