@@ -123,6 +123,8 @@ public class CarPurchaserHelper {
 
     /**
      * Returns a welcome message to be printed out to the user
+     *
+     * @return          A welcome message for the user
      */
     public String printWelcomeMessage() {
         // return a string literal with welcome message
@@ -131,6 +133,8 @@ public class CarPurchaserHelper {
 
     /**
      * Returns a goodbye message to be printed out to the user
+     *
+     * @return          A goodbye message for the user
      */
     public String printGoodbyeMessage() {
         // return a string literal with a goodbye message
