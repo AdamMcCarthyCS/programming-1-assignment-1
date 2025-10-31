@@ -152,7 +152,7 @@ public class CarPurchaserHelper {
      * @param carPrice          a double amount in euros and cents which represents the car price
      * @param numberOfMonths    an integer number of months over which the repayments are made
      *
-     * @return                  the personal contract plan monthly payment
+     * @return                  the monthly repayment to be made by the user
      */
     public double calculateMonthlyCost(double carPrice, int numberOfMonths) {
             /*
