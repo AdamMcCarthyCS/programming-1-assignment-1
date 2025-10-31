@@ -10,7 +10,7 @@
 public class CarPurchaserHelper {
 
     /**
-     * Calculates the monthly payment for a personal contract plan.
+     * Calculates the monthly payment for a hire-purchase agreement.
      *
      * <p>This method takes car price, initial deposit, annual interest rate, and repayment term in
      * years and computes the monthly repayment for a purchased vehicle.</p>
@@ -30,7 +30,7 @@ public class CarPurchaserHelper {
      * @param annualInterest    The percentage interest written as an integer
      * @param termYears         The number of years the payment will take place over
      *
-     * @return                  The monthly repayment value for the personal contract plan in euros
+     * @return                  The monthly repayment value for the hire-purchase agreement in euros
      *                          and cents
      */
     public double calculateHP(double carPrice, double deposit, double annualInterest, int termYears) {
@@ -105,7 +105,7 @@ public class CarPurchaserHelper {
     }
 
     /**
-     * Calculates the banana payment due at end of PCP payment term
+     * Calculates the balloon payment due at end of PCP payment term
      *
      * <p>This method calculates the balloon payment due at the end of the personal contract
      * plan if the user wishes to keep the car. The calculation is as follows:</p>
