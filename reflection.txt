@@ -15,7 +15,7 @@ I enjoy the programming labs, lectures, and links to extra material to read, suc
 from the first lecture about how the Java Virtual Machine works.
 
 Reflection Outline:
-
+TODO: Add javadocs folder
 Section 1: Where selection/iteration used
 ------------------------------
 In this section I will proceed by first going through the CarPurchaserHelper class from top to
@@ -41,7 +41,7 @@ CarPurchaserHelper::recommendCarType
 SELECTION: An if/else-if/else-if/else conditional statement is used in this method to hardcode
 the name of the car, its deposit percentage for HP and PCP, and the number of kilometers
 travelled per week, based on the lifestyle choice that the user has made. These are the only
-arguments that change when calling the calculateHP and pcpResultMonth methods. (lines 228 - 250)
+arguments that change when calling the calculateHP and pcpResultMonth methods. (lines 232 - 254)
 
 Driver.java
 -----------
@@ -65,12 +65,81 @@ a nightmare to maintain and debug. If the user chooses 6 to exit, 0 is returned 
 the program exiting, there is also validation here as if any number besides 1-6 is entered
 the user is informed via the start method that they have made an invalid choice.
     This approach makes it very straightforward to add new menu options later also. Just add another
-if-else condition and method to the class, then update the printed menu.
+if-else condition and method to the class, then update the printed menu. (lines 104 - 125)
 
 
 
 Section 2: Methods with parameters and return values
 ----------------------------------------------------
+In this section I will proceed by first going through the CarPurchaserHelper class from top to
+bottom, followed by going through the Driver class from top to bottom.
+
+CarPurchaserHelper.java
+-----------------------
+CarPurchaserHelper::calculateHP (lines 12 - 53)
+Calculates the monthly payment for a hire-purchase agreement.
+This method has the following double parameters: carPrice, deposit, annualInterest
+This method has the following int parameters: termYears
+The method returns a double which is the monthly repayment value for the hire-purchase agreement.
+A full description of the method can be found in its javadoc (lines 12-35) or in the javadocs folder.
+
+CarPurchaserHelper::pcpResultMonth (lines 55 - 105)
+Calculates the monthly payment for a personal contract plan.
+This method has the following double parameters: carPrice, deposit, annualInterest, gmfvPercent
+This method has the following int parameters: termYears
+The method returns a double which is the monthly repayment value for the personal contract plan
+A full description of the method can be found in its javadoc (lines 55 - 82) or in the javadocs folder.
+
+CarPurchaserHelper::calculateBalloonPayment (lines 107 - 122)
+Calculates the balloon payment due at end of PCP payment term
+This method has the following double parameters: carValue, gmfv
+The method returns a double which is the amount the user will need to pay to keep the vehicle at the
+end of the contract.
+A full description of the method can be found in its javadoc (lines 108 - 119) or in the javadocs
+folder.
+
+CarPurchaserHelper::printWelcomeMessage (lines 132 - 138)
+This method returns a welcome message to be printed out to the user
+A full description of the method can be found in its javadoc (lines 108 - 119) or in the javadocs
+folder.
+
+CarPurchaserHelper::printWelcomeMessage (lines 124 - 132)
+Returns a welcome message to be printed out to the user.
+A full description of the method can be found in its javadoc (lines 124 - 128) or in the javadocs
+folder.
+
+CarPurchaserHelper::printGoodbyeMessage (lines 134 - 142)
+Returns a goodbye message to be printed out to the user.
+A full description of the method can be found in its javadoc (lines 134 - 138) or in the javadocs
+folder.
+
+CarPurchaserHelper::calculateMonthlyCost (lines 144 - 165)
+Calculates the monthly payment for a 0% finance purchase of a car over a fixed term.
+This method has the following double parameters: carPrice
+This method has the following int parameters: numberOfMonths
+The method returns a double which is the monthly repayment to be made by the user.
+A full description of the method can be found in its javadoc (lines 144 - 156) or in the javadocs
+folder.
+
+CarPurchaserHelper::fuelCostEstimator (lines 167 - 190)
+Estimates the cost of fuel based on the number of kilometers driven per week.
+This method has the following double parameters: kilometersPerWeek, costOfFuel
+The method returns a weekly estimated fuel cost
+A full description of the method can be found in its javadoc (lines 167 - 180) or in the javadocs
+folder.
+
+CarPurchaserHelper::recommendCarType
+Makes a car recommendation based on the user's lifestyle.
+This method has the following String parameter: lifestyle
+The method returns A string detailing options of hire-purchase, personal contract plan, and fuel
+costs based on the users lifestyle
+A full description of the method can be found in its javadoc (lines 192 - 209) or in the javadocs
+folder.
+
+
+
+
+
 
 How PCP/HP were understood and used
 
