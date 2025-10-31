@@ -3,7 +3,7 @@ Name :              Adam McCarthy
 Student Number:     XXXXXXXX (Redacted for Github)
 
 ----------------------
-Student Introduction:
+Section 0: Student Introduction:
 Before taking this programming course I have taken two Java Courses equivalent to a year of Java
 programming at university here (https://java-programming.mooc.fi/). You can see my certificates for
 this here (https://github.com/AdamMcCarthyCS/adammccarthycs/tree/main/certificates).
@@ -16,9 +16,61 @@ from the first lecture about how the Java Virtual Machine works.
 
 Reflection Outline:
 
-Where selection/iteration used
+Section 1: Where selection/iteration used
+------------------------------
+In this section I will proceed by first going through the CarPurchaserHelper class from top to
+bottom, followed by going through the Driver class from top to bottom.
 
-Methods with parameters and return values
+CarPurchaserHelper.java
+-----------------------
+CarPurchaserHelper::calculateHP
+SELECTION: An if/else conditional statement is used to determine whether to include compound
+interest is used in the calculation of the monthly payment (lines 41-52)
+ITERATION: In the else block of the conditional statement a for loop is used to calculate
+the factor (1 + monthlyInterestRate)^n. That is, factor = (1 + r) * (1 + r) * ... * (1 + r), n times.
+(lines 46-48)
+
+CarPurchaserHelper::pcpResultMonth
+SELECTION: An if/else conditional statement is used to determine whether to include compound
+interest is used in the calculation of the monthly payment. (lines 92 - 102)
+ITERATION: In the else block of the conditional statement a for loop is used to calculate
+the factor (1 + monthlyInterestRate)^n. That is, factor = (1 + r) * (1 + r) * ... * (1 + r), n times.
+(lines 97 - 99)
+
+CarPurchaserHelper::recommendCarType
+SELECTION: An if/else-if/else-if/else conditional statement is used in this method to hardcode
+the name of the car, its deposit percentage for HP and PCP, and the number of kilometers
+travelled per week, based on the lifestyle choice that the user has made. These are the only
+arguments that change when calling the calculateHP and pcpResultMonth methods. (lines 228 - 250)
+
+Driver.java
+-----------
+
+Driver::start
+SELECTION: if the choice variable returned from the chooseMenuItem method is -1 then a warning
+message is printed to the user telling them they have made an invalid selection in the looping
+menu (lines 79 - 81)
+ITERATION: The while loop that controls the programs main menu has a sentinel value of -1 which
+starts the loop. The user is asked to make a choice from the options which is then passed to the
+chooseMenuItem method. Once the program has finished completing the logic from the menu choice
+control is passed back to the while loop. If the user has chosen exit then the choice value is
+set to 0 which causes the exit of the while loop, and as a result the program finishes.
+(lines 58 - 82)
+
+Driver::chooseMenuItem
+SELECTION: The menu choice the user has made is dealt with in a if/else-if block here. Valid
+choices are passed to helper functions to carry out the logic for the menu option. I chose to
+use this apporach rather than have one massive main method which would in my opinion have been
+a nightmare to maintain and debug. If the user chooses 6 to exit, 0 is returned which leads to
+the program exiting, there is also validation here as if any number besides 1-6 is entered
+the user is informed via the start method that they have made an invalid choice.
+    This approach makes it very straightforward to add new menu options later also. Just add another
+if-else condition and method to the class, then update the printed menu.
+
+
+
+Section 2: Methods with parameters and return values
+----------------------------------------------------
 
 How PCP/HP were understood and used
 
