@@ -1,3 +1,19 @@
+Name :              Adam McCarthy
+
+Student Number:     XXXXXXXX (Redacted for Github)
+
+----------------------
+Student Introduction:
+Before taking this programming course I have taken two Java Courses equivalent to a year of Java
+programming at university here (https://java-programming.mooc.fi/). You can see my certificates for
+this here (https://github.com/AdamMcCarthyCS/adammccarthycs/tree/main/certificates).
+
+While I was able to write the program without much difficulty, I used this project to practice
+writing professional javadocs and use Git versioning effectively for future projects. I am
+learning new material on the course as some of what I had previously studied was outdated.
+I enjoy the programming labs, lectures, and links to extra material to read, such as the article
+from the first lecture about how the Java Virtual Machine works.
+
 Reflection Outline:
 
 Where selection/iteration used
@@ -8,18 +24,75 @@ How PCP/HP were understood and used
 
 Coding process and challenges
 
+References: (See README.md)
 
 
-References:
-Volswagon T-Roc price:
-https://www.volkswagen.ie/en/used-cars/approved-used-cars.html/__app/search/car/SVJMMDAzOTUxNzg4MjQ=.app?pageIndex-app=1&t_manuf-app=BQ&t_cartype-app=N&sort-app=INITIAL_REG&sortdirection-app=DESC
-PCP APR example rate: (5.9%)
-https://www.volkswagen.ie/en/offers-and-products/new-car-offers.html (section 3)
-HP APR example rate: (0.9%)
-https://www.volkswagen.ie/en/offers-and-products/new-car-offers.html (section 2)
-Depoist Requirement: (35%)
-https://www.volkswagen.ie/en/offers-and-products/new-car-offers.html (section 3)
-Escaping a percent sign in String.format
-https://stackoverflow.com/questions/1708444/java-literal-percent-sign-in-printf-statement
-Letter to represent integer in String.format (see first table)
-https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Formatter.html#syntax
+
+
+Part A - Comments/Indention etc (x / 9)
+-----------------------------
+
+comments (x / 1)
+formatting (x / 2)
+naming (x / 2)
+structure of code (x / 2)
+inclusion of readme and reflection(x / 2)
+
+
+Part B - Working Project  (X /6)
+-----------------------------
+Code compile and runs without error (x / 6)
+
+
+Part C - CarPurchaseHelper (X /34)
+-----------------------------
+PCP method explained  (x / 7)
+HP method explained (x / 7)
+All other methods written   (x / 20)
+
+
+
+Part D - Driver	 (X /36)
+-----------------------------
+CarPurchaseHelper object created (X /3)
+Code written as per spec (X /33)
+   - HP Calculation code uncommented and working (X /3)
+   - PCP code correctly wrtten and outputs amount (X /15)
+   - lcv correctly updating and menu looping (X /5)
+   - all methods created in CarPurchaseHelper called and used correctly (X /10)
+
+
+Part E - Reflection/Readme (x / 10)
+-----------------------------
+Filled out parts A - D above (x / 3)
+
+Completed readme as per spec (x / 2)
+
+Rest(x / 5)
+Chronology of my implementation (what I did first, etc.. )
+
+Main difficulties I came across in your development of solution and how I solved them.
+
+Any bugs remaining in the solution or unfinished elements of spec (no need if you have detailed these in the rubric section)
+
+Main learnings from my engagement with assignment
+
+Mandatory : PLease list any references used in your development/ implementation of your submission.
+
+Please consider the following statements and choose one (delete the inappropriate one)
+
+- This is my work apart from the specific references noted above (and any code from class notes). I understand the code and can decribe any parts of the solution if needs be;
+
+- This is not all my own work - I'm not sure I understand what I am submitting.
+
+Part F - Final Product (x / 5)
+-----------------------------
+Well written menu and ease of use (x/5)
+
+Part G - For Extra Credit (10%)  (x / 10)
+-----------------------------
+Please list the following for each extra functionality that you implemented
+     the extra functionality
+     what changes this lead to from spec given
+     where the extra implementation took place.
+
