@@ -265,11 +265,11 @@ public class CarPurchaserHelper {
         // format hpMonthlyPayment and deposit to print to 2dp
         // format numberOfRepaymentMonths and annualInterestPCP to print as integers
         String hpLine = String.format("1) HP Agreement: €%.2f for %d months at %.2f%% APR, " +
-                        "with initial deposit (31%%) of €%.2f\n", hpMonthlyPayment, numberOfRepaymentMonths,
+                        "with initial deposit (35%%) of €%.2f\n", hpMonthlyPayment, numberOfRepaymentMonths,
                 annualInterestHP, depositHP);
         // format all double values to 2dp
         String pcpLine = String.format("2) PCP Agreement: €%.2f for %d months at %.2f%% APR, " +
-                        "with initial deposit (35%%) of €%.2f and GMFV of %.2f%%\n", pcpMonthlyPayment,
+                        "with initial deposit (31%%) of €%.2f and GMFV of %.2f%%\n", pcpMonthlyPayment,
                 numberOfRepaymentMonths, annualInterestPCP, depositPCP, gmfvPercent);
         // format ordinaryFinanceMonthlyCost to 2dp
         // format numberOfRepaymentMonths as an integer
