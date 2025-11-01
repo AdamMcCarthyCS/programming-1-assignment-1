@@ -200,9 +200,10 @@ folder.
 
 Section 3: How PCP/HP were understood and used
 -----------------------------------
-TODO: Explain PCP/HP Methods
-CarPuchaserHelper::calculateHP
+In this section I will explain how the calculateHP and pcpResultMonth methods work and are used
 
+CarPurchaserHelper::calculateHP
+------------------------------
 How the method works:
 (1) The calculateHP method takes arguments representing the car price, depoist, APR, and hire-purchase
 duration.
@@ -217,26 +218,64 @@ multiplier.
     number of months, giving the monthly repayment, which is returned, ending the method call.
     (b1) If the monthly interest rate is greater than 0% then starting with a factor of 1, the
     factor is multiplied by 1 + monthly interest multiplier and updated for each month of the
-    hire-purchase term. This results in the interest compounding and each iteration of the compounding
-    process including calculating interest on the interest generated in the previous month(s). This
-    results in a factor, which if multiplied by the amount to finance, gives the total amount which
-    will need to be repaid and includes the initial amount to finance and all interest generated
-    durinig the hire-purchase term.
-    (b2) Finally the monthly payment is using by the formula:
+    hire-purchase term. This results in the interest rate compounding, and each iteration of the
+    compounding process includes calculating interest on the interest rate generated in the previous
+    iteration. This results in a factor, which multiplied by the amount to finance, gives the
+    total amount which will need to be repaid and includes the initial amount to finance and all
+    interest generated during the hire-purchase term.
+    (b2) Finally the monthly payment is calculated using by the formula:
     monthly payment = amount to finance * monthly interest rate * factor / (factor - 1)
     This is then returned by the method
 
 How the method is used:
 Use 1: When the user selects calculate HP (Driver::start - line 63), control of the program is passed to
-the Driver::calculateHP method which calls the CarPurchaserHelper::calculateHP method
-(Driver - line 157)
+the Driver::calculateHP method (Driver - line 141) which calls the CarPurchaserHelper::calculateHP method
+(CarPurchaserHelper - line 36)
 Use 2: When the user selects Recommend Car Type (Driver::start - line 67), control of the program is
-passed to the Driver::recommendedCarChoice method. This calls the CarPurchaserHelper::recommendCarType
-method which in turn uses the CarPurchaserHelper::calculateHP method to calculate the montly hire purchase
-payment and prints it as part of its recommendations based on the user's lifestyle.
+passed to the Driver::recommendedCarChoice method (Driver - line 287). This calls the
+CarPurchaserHelper::recommendCarType method (CarPurchaserHelper - line 210) which in turn uses the
+CarPurchaserHelper::calculateHP method (CarPurchaserHelper - line 36) to calculate the monthly
+hire-purchase payment (CarPurchaserHelper - line 256) and prints it as part of its recommendations based on the user's lifestyle.
 
 
+CarPurchaserHelper::pcpResultMonth
+----------------------------------
+How the method works:
+(1) The pcpResultMonth takes arguments representing the car price, deposit amount, APR, contract term
+in years, and guaranteed minimum future value at the end of the contract
+(2) The guaranteed minimum future value is calculated by turning the gmfvPercent into a multiplier
+which is multiplied by the car price to give the future value at the end of the contract.
+(3) The amount to finance is calcualte by subtracting the deposit and guaranteed minimum future value
+from the original car price.
+(4) The monthly interest rate is calcualted by dividing the integer percentage value by 100 to change
+it to a multiplier, then dividing the result by 12 to find out the value of the multiplier for a single
+month.
+(5) The total number of months is calculated by multiplying the number of years by 12 (months).
+(6) A double variable is created to store the monthly payment which will be the methods return value.
+(7) The program control flow breaks into two separate paths
+    (7a) If the monthly interest rate is 0% then the monthly payments are calculated by dividing the
+    car price by the number of months and returning this value.
+    (7b1) If the monthly interest rate is greater than 0% then starting with a factor of 1, the
+    factor is multiplied by 1 + monthly interest multiplier and updated for each month of the
+    personal contract plan term. This results in the interest rate compounding, and each iteration
+    of the compounding process includes calculating interest on the interest rate generated in the
+    previous iteration. This results in a factor, which multiplied by the amount to finance, gives
+    the total amount which will need to be repaid and includes the initial amount to finance and all
+    interest generated during the personal contract payment term.
+    (7b2) Finally the monthly payment is calculated using by the formula:
+    monthly payment = amount to finance * monthly interest rate * factor / (factor - 1)
+    This is then returned by the method.
 
+How the method is used:
+Use 1: When the user selects calculate PCP (Driver::start - line 64), control of the program is passed to
+the Driver::calculatePCP method (Driver - line 179) which calls the
+CarPurchaserHelper::pcpResultMonth method (CarPurchaserHelper - line 83)
+Use 2: When the user selects Recommend Car Type (Driver::start - line 67), control of the program is
+passed to the Driver::recommendedCarChoice method (Driver - line 287). This calls the
+CarPurchaserHelper::recommendCarType method (CarPurchaserHelper - line 210) which in turn uses the
+CarPurchaserHelper::pcpResultMonth method (CarPurchaserHelper - line 83) to calculate the monthly
+personal contract plan payment (CarPurchaserHelper - line 258) and prints it as part of its recommendations based on the user's
+lifestyle.
 
 Coding process and challenges
 TODO: Write Chronology of project
@@ -295,7 +334,7 @@ TODO: Main learnings from my engagement with assignment
 Please consider the following statements and choose one (delete the inappropriate one)
 
 - This is my work apart from the specific references noted above (and any code from class notes).
-I understand the code and can decribe any parts of the solution if needs be;
+I understand the code and can describe any parts of the solution if needs be;
 
 Part F - Final Product (x / 5)
 -----------------------------
