@@ -42,7 +42,7 @@ public class Driver {
     }
 
     /**
-     * Main menu loop of the program.
+     * Handles main menu loop of the program.
      *
      * <p>Each time the user selects an option the program passes control to one of the helper
      * methods through the {@code chooseMenuItem} method. The program continuously returns
@@ -163,7 +163,7 @@ public class Driver {
 
     /**
      * Collects user information for the calculation and printing of a personal contract plan
-     * monthly amount.
+     * monthly payment.
      *
      * <p>The method prompts the user to enter the data needed to calculate the value of a
      * personal contract plan agreement monthly payment. Once it has all the relevant arguments
