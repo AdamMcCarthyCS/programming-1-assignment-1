@@ -226,19 +226,19 @@ public class CarPurchaserHelper {
         if (userLifestyle.equals("family")) {
             // Store the name of the car and calculate the deposit
             carName = "Volkswagen T-Roc R-Line";
-            carPrice = 40460.00d;
+            carPrice = 35580.00d;
             depositHP = depositHPpercentage * carPrice;
             depositPCP = depositPCPPercentage * carPrice;
             kilometersPerWeek = 400d;
         } else if (userLifestyle.equals("luxury")) {
             carName = "BMW i4 eDrive35 M Sport";
-            carPrice = 74501.40d;
+            carPrice = 64945.40d;
             depositHP = depositHPpercentage * carPrice;
             depositPCP = depositPCPPercentage * carPrice;
             kilometersPerWeek = 300d;
         } else if (userLifestyle.equals("adventure")) {
             carName = "Land Rover Defender";
-            carPrice = 72825d;
+            carPrice = 309894d;
             depositHP = depositHPpercentage * carPrice;
             depositPCP = depositPCPPercentage * carPrice;
             kilometersPerWeek = 1000d;
@@ -265,11 +265,11 @@ public class CarPurchaserHelper {
         // format hpMonthlyPayment and deposit to print to 2dp
         // format numberOfRepaymentMonths and annualInterestPCP to print as integers
         String hpLine = String.format("1) HP Agreement: €%.2f for %d months at %.2f%% APR, " +
-                        "with initial deposit of €%.2f\n", hpMonthlyPayment, numberOfRepaymentMonths,
+                        "with initial deposit (31%%) of €%.2f\n", hpMonthlyPayment, numberOfRepaymentMonths,
                 annualInterestHP, depositHP);
         // format all double values to 2dp
         String pcpLine = String.format("2) PCP Agreement: €%.2f for %d months at %.2f%% APR, " +
-                        "with initial deposit of €%.2f and GMFV of %.2f%%\n", pcpMonthlyPayment,
+                        "with initial deposit (35%%) of €%.2f and GMFV of %.2f%%\n", pcpMonthlyPayment,
                 numberOfRepaymentMonths, annualInterestPCP, depositPCP, gmfvPercent);
         // format ordinaryFinanceMonthlyCost to 2dp
         // format numberOfRepaymentMonths as an integer
