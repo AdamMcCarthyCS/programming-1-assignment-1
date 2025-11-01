@@ -58,14 +58,33 @@ place two digits to the right (e.g 23.445 -> 2344.5) then round it (2345) the di
 (23.45). Casting this back to a double is fine when the long value is not very large.
     In the end I chose to use the String method as it comes from one of the few Classes that has
 been covered in the course to date, and it also forced me to learn how to format numbers in text 
-with that ugly C % sign syntax. Aside: (Oh, how I miss you Python f-strings!)
+with that older C % sign syntax. Aside: (Oh, how I miss you Python f-strings!)
 
 (1) https://stackoverflow.com/questions/11701399/round-up-to-2-decimal-places-in-java
 (2) https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html - The static round method with a double parameter
 
 
-Sources used/refernced:
+Sources used/referenced:
 =======================
 
-Failure to fully  reference such material used may result in plagiarism process being brought into play. 
-
+Volswagon T-Roc price:
+https://www.volkswagen.ie/en/new-cars/t-roc.html?adchan=sem&campaign=10171028_BR_AO_LAO_CPC_AOP_ABE_BRD_EV_IRL_SEAH_PSEAC_TEAD_NU_GAD_GADW_CPC_NU_NU_MULTI_NU_NU_EN_NU_MXED_10257434_MODEL_TROC&adgroup=T-Roc+%7C+Sport+%5BExact%5D&publisher=GOOGLE&adcr=volkswagen+t+roc&adpl=GOOGLE&adlid=914582357&country=IE&language=EN&gclsrc=aw.ds&gad_source=1&gad_campaignid=914582357&gbraid=0AAAAADkuwy_BCvod0o4Ts5Bvu4Jlv76KY&gclid=Cj0KCQjwvJHIBhCgARIsAEQnWlAri958ium5RbeYUpxnKC37smFMWbsFFSUgSHaHNpCutAR14DrYkoEaAjmTEALw_wcB
+BMW i4 eDrive35 M Sport price
+https://discover.bmw.ie/bmwoffers/bmw-i4-edrive35-m-sport/#:~:text=Here's%20some%20information%20about%20the%20BMW%20i4,of%20credit%20%E2%82%AC5%2C610%20*%20Term%20(months)%2037
+Land Rover Defender Octa price
+https://buildyour.landrover.com/lr/en_ie/l663_k26/4chw1/ipr/inspire?f-bodystyle=A-SV-110
+HP APR example annual percentage rate: (0.9%)
+https://www.volkswagen.ie/en/offers-and-products/new-car-offers.html (section 2)
+HP Depoist Requirement: (35%)
+https://www.volkswagen.ie/en/offers-and-products/new-car-offers.html (section 2)
+PCP APR example annual percentage rate: (5.9%)
+https://www.volkswagen.ie/en/offers-and-products/new-car-offers.html (section 3)
+PCP Deposit Requirement: (31%)
+https://www.volkswagen.ie/en/offers-and-products/new-car-offers.html (section 3)
+Formatting a string in Java
+(1) https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#format-java.util.Locale-java.lang.String-java.lang.Object...-:~:text=static%20String-,format,-(String%C2%A0format%2C%20Object
+(2) https://www.w3schools.com/java/ref_string_format.asp
+Escaping a percent sign in String.format
+https://stackoverflow.com/questions/1708444/java-literal-percent-sign-in-printf-statement
+Conversion character to represent integer in String.format (scroll to first table)
+https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Formatter.html#syntax

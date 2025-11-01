@@ -1,25 +1,417 @@
+Name :              Adam McCarthy
+
+Student Number:     XXXXXXXX (Redacted for Github)
+
+----------------------
+Section 0: Student Introduction:
+Before taking this programming course I have taken two Java Courses equivalent to a year of Java
+programming at university here (https://java-programming.mooc.fi/). You can see my certificates for
+this here (https://github.com/AdamMcCarthyCS/adammccarthycs/tree/main/certificates).
+
+While I was able to write the program without much difficulty, I used this project to practice
+writing professional javadocs and use Git versioning effectively for future projects. I am
+learning new material on the course as some of what I had previously studied was outdated.
+I enjoy the programming labs, lectures, and links to extra material to read, such as the article
+from the first lecture about how the Java Virtual Machine works.
+
 Reflection Outline:
-
-Where selection/iteration used
-
-Methods with parameters and return values
-
-How PCP/HP were understood and used
-
-Coding process and challenges
+TODO: Add javadocs folder
+Section 1: Where selection/iteration used
+------------------------------
+In this section I will proceed by first going through the CarPurchaserHelper class from top to
+bottom, followed by going through the Driver class from top to bottom.
 
 
+CarPurchaserHelper.java
+-----------------------
+CarPurchaserHelper::calculateHP
+SELECTION: An if/else conditional statement is used to determine whether to include compound
+interest is used in the calculation of the monthly payment (lines 41-52)
+ITERATION: In the else block of the conditional statement a for loop is used to calculate
+the factor (1 + monthlyInterestRate)^n. That is, factor = (1 + r) * (1 + r) * ... * (1 + r), n times.
+(lines 46-48)
 
-References:
-Volswagon T-Roc price:
-https://www.volkswagen.ie/en/used-cars/approved-used-cars.html/__app/search/car/SVJMMDAzOTUxNzg4MjQ=.app?pageIndex-app=1&t_manuf-app=BQ&t_cartype-app=N&sort-app=INITIAL_REG&sortdirection-app=DESC
-PCP APR example rate: (5.9%)
-https://www.volkswagen.ie/en/offers-and-products/new-car-offers.html (section 3)
-HP APR example rate: (0.9%)
-https://www.volkswagen.ie/en/offers-and-products/new-car-offers.html (section 2)
-Depoist Requirement: (35%)
-https://www.volkswagen.ie/en/offers-and-products/new-car-offers.html (section 3)
-Escaping a percent sign in String.format
-https://stackoverflow.com/questions/1708444/java-literal-percent-sign-in-printf-statement
-Letter to represent integer in String.format (see first table)
-https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Formatter.html#syntax
+CarPurchaserHelper::pcpResultMonth
+SELECTION: An if/else conditional statement is used to determine whether to include compound
+interest is used in the calculation of the monthly payment. (lines 92 - 102)
+ITERATION: In the else block of the conditional statement a for loop is used to calculate
+the factor (1 + monthlyInterestRate)^n. That is, factor = (1 + r) * (1 + r) * ... * (1 + r), n times.
+(lines 97 - 99)
+
+CarPurchaserHelper::recommendCarType
+SELECTION: An if/else-if/else-if/else conditional statement is used in this method to hardcode
+the name of the car, its deposit percentage for HP and PCP, and the number of kilometers
+travelled per week, based on the lifestyle choice that the user has made. These are the only
+arguments that change when calling the calculateHP and pcpResultMonth methods. (lines 232 - 254)
+
+
+Driver.java
+-----------
+Driver::start
+SELECTION: if the choice variable returned from the chooseMenuItem method is -1 then a warning
+message is printed to the user telling them they have made an invalid selection in the looping
+menu (lines 79 - 81)
+ITERATION: The while loop that controls the programs main menu has a sentinel value of -1 which
+starts the loop. The user is asked to make a choice from the options which is then passed to the
+chooseMenuItem method. Once the program has finished completing the logic from the menu choice
+control is passed back to the while loop. If the user has chosen exit then the choice value is
+set to 0 which causes the exit of the while loop, and as a result the program finishes.
+(lines 58 - 82)
+
+Driver::chooseMenuItem
+SELECTION: The menu choice the user has made is dealt with in a if/else-if block here. Valid
+choices are passed to helper functions to carry out the logic for the menu option. I chose to
+use this apporach rather than have one massive main method which would in my opinion have been
+a nightmare to maintain and debug. If the user chooses 6 to exit, 0 is returned which leads to
+the program exiting, there is also validation here as if any number besides 1-6 is entered
+the user is informed via the start method that they have made an invalid choice.
+    This approach makes it very straightforward to add new menu options later also. Just add another
+if-else condition and method to the class, then update the printed menu. (lines 104 - 125)
+
+
+
+Section 2: Methods with parameters and return values
+----------------------------------------------------
+In this section I will proceed by first going through the CarPurchaserHelper class from top to
+bottom, followed by going through the Driver class from top to bottom.
+
+
+CarPurchaserHelper.java
+-----------------------
+CarPurchaserHelper::calculateHP (lines 12 - 53)
+Calculates the monthly payment for a hire-purchase agreement.
+This method has the following double parameters: carPrice, deposit, annualInterest
+This method has the following int parameters: termYears
+The method returns a double which is the monthly repayment value for the hire-purchase agreement.
+A full description of the method can be found in its javadoc (lines 12-35) or in the javadocs folder.
+
+CarPurchaserHelper::pcpResultMonth (lines 55 - 105)
+Calculates the monthly payment for a personal contract plan.
+This method has the following double parameters: carPrice, deposit, annualInterest, gmfvPercent
+This method has the following int parameters: termYears
+The method returns a double which is the monthly repayment value for the personal contract plan
+A full description of the method can be found in its javadoc (lines 55 - 82) or in the javadocs folder.
+
+CarPurchaserHelper::calculateBalloonPayment (lines 107 - 122)
+Calculates the balloon payment due at end of PCP payment term
+This method has the following double parameters: carValue, gmfv
+The method returns a double which is the amount the user will need to pay to keep the vehicle at the
+end of the contract.
+A full description of the method can be found in its javadoc (lines 108 - 119) or in the javadocs
+folder.
+
+CarPurchaserHelper::printWelcomeMessage (lines 132 - 138)
+This method returns a welcome message to be printed out to the user
+A full description of the method can be found in its javadoc (lines 108 - 119) or in the javadocs
+folder.
+
+CarPurchaserHelper::printWelcomeMessage (lines 124 - 132)
+Returns a welcome message to be printed out to the user.
+A full description of the method can be found in its javadoc (lines 124 - 128) or in the javadocs
+folder.
+
+CarPurchaserHelper::printGoodbyeMessage (lines 134 - 142)
+Returns a goodbye message to be printed out to the user.
+A full description of the method can be found in its javadoc (lines 134 - 138) or in the javadocs
+folder.
+
+CarPurchaserHelper::calculateMonthlyCost (lines 144 - 165)
+Calculates the monthly payment for a 0% finance purchase of a car over a fixed term.
+This method has the following double parameters: carPrice
+This method has the following int parameters: numberOfMonths
+The method returns a double which is the monthly repayment to be made by the user.
+A full description of the method can be found in its javadoc (lines 144 - 156) or in the javadocs
+folder.
+
+CarPurchaserHelper::fuelCostEstimator (lines 167 - 190)
+Estimates the cost of fuel based on the number of kilometers driven per week.
+This method has the following double parameters: kilometersPerWeek, costOfFuel
+The method returns a weekly estimated fuel cost
+A full description of the method can be found in its javadoc (lines 167 - 180) or in the javadocs
+folder.
+
+CarPurchaserHelper::recommendCarType
+Makes a car recommendation based on the user's lifestyle.
+This method has the following String parameter: lifestyle
+The method returns a string detailing options of hire-purchase, personal contract plan, 0% finance
+plan and fuel costs based on the users lifestyle.
+A full description of the method can be found in its javadoc (lines 192 - 209) or in the javadocs
+folder.
+
+
+Driver.java
+-----------
+Driver::main (lines 15 - 42)
+This is the entry point for the program
+This method has the following String[] parameter args
+A full description of the method can be found in its javadoc (lines 15 - 24) or in the javadocs
+folder.
+
+Driver::start (lines 44 - 83)
+Handles main menu loop of the program.
+This method has the following Scanner parameter: input
+This method has the following CarPurchaserHelper parameter: carPurchaserHelper
+A full description of the method can be found in its javadoc (lines 44 - 54) or in the javadocs
+folder.
+
+Driver::chooseMenuItem (lines 85 - 125)
+Delegates user menu choice to the appropriate helper function of the class.
+This method has the following int variable: userChoice
+This method has the following Scanner variable: input
+This method has the following CarPurchaserHelper variable: carPurchaserHelper
+This method returns an int which determines whether the loop in the main method continues
+A full description of the method can be found in its javadoc (lines 85 - 101) or in the javadocs
+folder.
+
+Driver::calculateHP (lines 127 - 162)
+Collects user information for calculation and printing of monthly hire-purchase payment
+This method has the following Scanner variable: input
+This method has the following CarPurchaserHelper variable: carPurchaserHelper
+A full description of the method can be found in its javadoc (lines 127 - 149) or in the javadocs
+folder.
+
+Driver::calculatePCP (lines 164 - 208)
+Collects user information for the calculation and printing of a personal contract plan monthly payment.
+This method has the following Scanner variable: input
+This method has the following CarPurchaserHelper variable: carPurchaserHelper
+A full description of the method can be found in its javadoc (lines 164 - 178) or in the javadocs
+folder.
+
+Driver::calculateFuelCost (lines 210 - 237)
+Collects information from the user to calculate and print an estimated weekly fuel cost.
+This method has the following Scanner variable: input
+This method has the following CarPurchaserHelper variable: carPurchaserHelper
+A full description of the method can be found in its javadoc (lines 210 - 221) or in the javadocs
+folder.
+
+Driver::calculateMonthlyCost (lines 239 - 270)
+Collects information from the user to calculate the monthly repayments on a 0% interest car loan.
+This method has the following Scanner variable: input
+This method has the following CarPurchaserHelper variable: carPurchaserHelper
+A full description of the method can be found in its javadoc (lines 239 - 252) or in the javadocs
+folder.
+
+Driver::recommendCarChoice (lines 272 - 299)
+Collects information from the user to recommend a car purchase that compliments their lifestyle
+This method has the following Scanner variable: input
+This method has the following CarPurchaserHelper variable: carPurchaserHelper
+A full description of the method can be found in its javadoc (lines 272 - 286) or in the javadocs
+folder.
+
+Section 3: How PCP/HP were understood and used
+-----------------------------------
+In this section I will explain how the calculateHP and pcpResultMonth methods work and are used
+
+CarPurchaserHelper::calculateHP
+------------------------------
+How the method works:
+(1) The calculateHP method takes arguments representing the car price, depoist, APR, and hire-purchase
+duration.
+(2) It then calculates the amount to finance by subtracting the deposit from the car price giving
+the outstanding balance on the car.
+(3) The monthly interest rate is calculated by dividing the integer annual interest rate by 100,
+which turns it into a multiplier between 0 and 1 and divides this by 12 to give the monthly interest
+multiplier.
+(4) The total number of monthly payments is calculated by multiplying the number of years by 12 (months)
+(5) The program control flow splits into two parts
+    (a) If the monthly interest rate is 0% then the amount to finance (2) is divided by the total
+    number of months, giving the monthly repayment, which is returned, ending the method call.
+    (b1) If the monthly interest rate is greater than 0% then starting with a factor of 1, the
+    factor is multiplied by 1 + monthly interest multiplier and updated for each month of the
+    hire-purchase term. This results in the interest rate compounding, and each iteration of the
+    compounding process includes calculating interest on the interest rate generated in the previous
+    iteration. This results in a factor, which multiplied by the amount to finance, gives the
+    total amount which will need to be repaid and includes the initial amount to finance and all
+    interest generated during the hire-purchase term.
+    (b2) Finally the monthly payment is calculated using by the formula:
+    monthly payment = amount to finance * monthly interest rate * factor / (factor - 1)
+    This is then returned by the method
+
+How the method is used:
+Use 1: When the user selects calculate HP (Driver::start - line 63), control of the program is passed to
+the Driver::calculateHP method (Driver - line 141) which calls the CarPurchaserHelper::calculateHP method
+(CarPurchaserHelper - line 36)
+Use 2: When the user selects Recommend Car Type (Driver::start - line 67), control of the program is
+passed to the Driver::recommendedCarChoice method (Driver - line 287). This calls the
+CarPurchaserHelper::recommendCarType method (CarPurchaserHelper - line 210) which in turn uses the
+CarPurchaserHelper::calculateHP method (CarPurchaserHelper - line 36) to calculate the monthly
+hire-purchase payment (CarPurchaserHelper - line 256) and prints it as part of its recommendations based on the user's lifestyle.
+
+
+CarPurchaserHelper::pcpResultMonth
+----------------------------------
+How the method works:
+(1) The pcpResultMonth takes arguments representing the car price, deposit amount, APR, contract term
+in years, and guaranteed minimum future value at the end of the contract
+(2) The guaranteed minimum future value is calculated by turning the gmfvPercent into a multiplier
+which is multiplied by the car price to give the future value at the end of the contract.
+(3) The amount to finance is calcualte by subtracting the deposit and guaranteed minimum future value
+from the original car price.
+(4) The monthly interest rate is calcualted by dividing the integer percentage value by 100 to change
+it to a multiplier, then dividing the result by 12 to find out the value of the multiplier for a single
+month.
+(5) The total number of months is calculated by multiplying the number of years by 12 (months).
+(6) A double variable is created to store the monthly payment which will be the methods return value.
+(7) The program control flow breaks into two separate paths
+    (7a) If the monthly interest rate is 0% then the monthly payments are calculated by dividing the
+    car price by the number of months and returning this value.
+    (7b1) If the monthly interest rate is greater than 0% then starting with a factor of 1, the
+    factor is multiplied by 1 + monthly interest multiplier and updated for each month of the
+    personal contract plan term. This results in the interest rate compounding, and each iteration
+    of the compounding process includes calculating interest on the interest rate generated in the
+    previous iteration. This results in a factor, which multiplied by the amount to finance, gives
+    the total amount which will need to be repaid and includes the initial amount to finance and all
+    interest generated during the personal contract payment term.
+    (7b2) Finally the monthly payment is calculated using by the formula:
+    monthly payment = amount to finance * monthly interest rate * factor / (factor - 1)
+    This is then returned by the method.
+
+How the method is used:
+Use 1: When the user selects calculate PCP (Driver::start - line 64), control of the program is passed to
+the Driver::calculatePCP method (Driver - line 179) which calls the
+CarPurchaserHelper::pcpResultMonth method (CarPurchaserHelper - line 83)
+Use 2: When the user selects Recommend Car Type (Driver::start - line 67), control of the program is
+passed to the Driver::recommendedCarChoice method (Driver - line 287). This calls the
+CarPurchaserHelper::recommendCarType method (CarPurchaserHelper - line 210) which in turn uses the
+CarPurchaserHelper::pcpResultMonth method (CarPurchaserHelper - line 83) to calculate the monthly
+personal contract plan payment (CarPurchaserHelper - line 258) and prints it as part of its recommendations based on the user's
+lifestyle.
+
+Section 4: Coding process
+TODO: Write Chronology of project
+(1) I initially created a git repository for the project and implemented the printWelcomeMessage and
+printGoodbyeMessage methods along with the calculateMonthlyCost and fuelCostEstimator methods.
+(2) I then created an instance of the CarPurchaserHelper class in the Driver class and implemented
+the menu, hp calculation, pcp calculation, fuel cost, monthly repayment and program exit logic.
+(3) I then implemented the car recommendation method in the CarPurchaserHelper class and formatted
+its string output so the numerical values would be printed to 2dp, the expected format for monetary
+values.
+(4) I then decided that instead of having a single huge main method performing all of the menu control
+logic, I would refactor the Driver class to be a simple main method starting the program, a start
+method which prints and controls the program menu loop, and a chooseMenuItem method which delegates
+control flow to helper methods which perform each of the menu's 6 choices. The idea behind this is
+that it separated the concerns in the program, makes it easy to add new items, makes it easy to
+debug any issues due to the uncoupling of the different parts of the program logic and if
+the program were to be tested it would make that process easier as the structure of the logic would
+become more modular.
+(5) I then went through the CarPurchaserHelper and Driver class and wrote javadoc style documentation
+for all methods in the class. My idea here was to be able to generate interactive javadocs to go along
+with the project of the same type as you can find on the Oracle java documentation. A developer
+familiar with java would then be able to look at my project documentation in a way that is familiar
+with their day-to-day workflow.
+(6) I then wrote the readme, including user instructions, program description and problems with the
+implementation
+(7) I added a method to calculate the balloon payment and updated the output in the Driver class for
+that option (a process made very straightforward by my refactoring in step (4).
+(8) At this point the program logic was completed and I wrote the reflection detailing, the use of
+iteration and selection, methods, their parameters and return values, how the pcp and hp methods work
+and where they are used, and the chronology of the project to date, and ...
+
+
+Section 5: Challenges
+TODO: Write challenges
+(1) The first issue I had when completing the project was that the formatting of the double outputs
+of my calculation methods in the CarPurchaserHelper class were not rounded to two decimal places. I
+saw three possible solutions to this.
+    (a) I could round the outputs using the Math.round() method from the java.lang library. This has
+    been explained in the README.md. The basic idea is that I would have either rounded each value
+    in each method before returning it or implemented a helper function to round the values. I felt
+    that this would obscure the logic of each individual method by coupling it with another method or
+    the Math class which we have so far not used on the course.
+    (b) I could use the String.format() method to round the values to two decimal places at any place
+    where the values were returned or printed. Although this causes some unnecessary repetition we
+    have spent significant time in the course discussing the String class and I felt it was keeping
+    more with what has been taught in the lectures. Although the format method wasn't specifically
+    mentioned the Oracle docs and online tutorials show how the method can be easily used for
+    rounding of doubles.
+
+(2) The second issue that I had was related to refactoring the main method into several static helper
+methods. I had to pass the Scanner and CarPurchaserHelper objects as arguments into each of the helper
+methods that I created. This felt a little forced to me. I would have preferred to have both of
+those instances created in main as class fields so the static methods would not be reliant on passed
+instances to carry out their functionality. However, to solve this the way I really wanted to would
+require me to have fields in the Driver class which contain the Scanner and CarPurchaserHelper
+instances. That way I would not have to pass them through the method calls. However, as we have not
+covered OOP yet, I wanted to implement a solution that used the procedural approach to programming we
+have taken so far on the course.
+
+Section 6: Main Learnings
+
+
+References: (See README.md)
+All references used are detailed in the README.md
+The GitHub repository for this project can be found at: TODO add GitHub repo address
+
+
+TODO: check program options all work in both
+TODO: Mark work and add references showing evidence for marking
+Part A - Comments/Indention etc (x / 9)
+-----------------------------
+
+comments (x / 1)
+formatting (x / 2)
+naming (x / 2)
+structure of code (x / 2)
+inclusion of readme and reflection(x / 2)
+
+
+Part B - Working Project  (X /6)
+-----------------------------
+Code compile and runs without error (x / 6)
+
+
+Part C - CarPurchaseHelper (X /34)
+-----------------------------
+PCP method explained  (x / 7)
+HP method explained (x / 7)
+All other methods written   (x / 20)
+
+
+
+Part D - Driver	 (X /36)
+-----------------------------
+CarPurchaseHelper object created (X /3)
+Code written as per spec (X /33)
+   - HP Calculation code uncommented and working (X /3)
+   - PCP code correctly written and outputs amount (X /15)
+   - lcv correctly updating and menu looping (X /5)
+   - all methods created in CarPurchaseHelper called and used correctly (X /10)
+
+
+Part E - Reflection/Readme (x / 10)
+-----------------------------
+Filled out parts A - D above (x / 3)
+
+Completed readme as per spec (x / 2)
+
+Rest(x / 5)
+Chronology of my implementation (what I did first, etc.. )
+
+TODO: Main difficulties I came across in your development of solution and how I solved them.
+
+TODO: Main learnings from my engagement with assignment
+
+Please consider the following statements and choose one (delete the inappropriate one)
+
+- This is my work apart from the specific references noted above (and any code from class notes).
+I understand the code and can describe any parts of the solution if needs be;
+
+Part F - Final Product (x / 5)
+-----------------------------
+Well written menu and ease of use (x/5)
+TODO: Change menu instruction to explicitly mention inputing an integer 1-6
+
+Part G - For Extra Credit (10%)  (x / 10)
+-----------------------------
+TODO: Menu Validation
+TODO: Recommendation method
+TODO: JavaDocs
+TODO: Github Repository with commit history (make sure to upload folder on main branch!!!)
+TODO: Decoupling of program into static methods
+
+Please list the following for each extra functionality that you implemented
+     the extra functionality
+     what changes this lead to from spec given
+     where the extra implementation took place.
+
+TODO: NB: check all TODO's from original skeleton are completed
