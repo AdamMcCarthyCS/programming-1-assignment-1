@@ -277,14 +277,48 @@ CarPurchaserHelper::pcpResultMonth method (CarPurchaserHelper - line 83) to calc
 personal contract plan payment (CarPurchaserHelper - line 258) and prints it as part of its recommendations based on the user's
 lifestyle.
 
-Coding process and challenges
+Coding process
 TODO: Write Chronology of project
+(1) I initially created a git repository for the project and implemented the printWelcomeMessage and
+printGoodbyeMessage methods along with the calculateMonthlyCost and fuelCostEstimator methods.
+(2) I then created an instance of the CarPurchaserHelper class in the Driver class and implemented
+the menu, hp calculation, pcp calculation, fuel cost, monthly repayment and program exit logic.
+(3) I then implemented the car recommendation method in the CarPurchaserHelper class and formatted
+its string output so the numerical values would be printed to 2dp, the expected format for monetary
+values.
+(4) I then decided that instead of having a single huge main method performing all of the menu control
+logic, I would refactor the Driver class to be a simple main method starting the program, a start
+method which prints and controls the program menu loop, and a chooseMenuItem method which delegates
+control flow to helper methods which perform each of the menu's 6 choices. The idea behind this is
+that it separated the concerns in the program, makes it easy to add new items, makes it easy to
+debug any issues due to the uncoupling of the different parts of the program logic and if
+the program were to be tested it would make that process easier as the structure of the logic would
+become more modular.
+(5) I then went through the CarPurchaserHelper and Driver class and wrote javadoc style documentation
+for all methods in the class. My idea here was to be able to generate interactive javadocs to go along
+with the project of the same type as you can find on the Oracle java documentation. A developer
+familiar with java would then be able to look at my project documentation in a way that is familiar
+with their day-to-day workflow.
+(6) I then wrote the readme, including user instructions, program description and problems with the
+implementation
+(7) I added a method to calculate the balloon payment and updated the output in the Driver class for
+that option (a process made very straightforward by my refactoring in step (4).
+(8) At this point the program logic was completed and I wrote the reflection detailing, the use of
+iteration and selection, methods, their parameters and return values, how the pcp and hp methods work
+and where they are used, and the chronology of the project to date, and ...
+
+
+challenges
+TODO: Write challenges
+- formatting
+- refactoring main (passing Scanner and CarPurchaserHelper)
+
 References: (See README.md)
 TODO: Add link to github repo
 
 
-
-
+TODO: check program options all work in both
+TODO: Mark work and add references showing evidence for marking
 Part A - Comments/Indention etc (x / 9)
 -----------------------------
 
@@ -339,6 +373,7 @@ I understand the code and can describe any parts of the solution if needs be;
 Part F - Final Product (x / 5)
 -----------------------------
 Well written menu and ease of use (x/5)
+TODO: Change menu instruction to explicitly mention inputing an integer 1-6
 
 Part G - For Extra Credit (10%)  (x / 10)
 -----------------------------
@@ -353,3 +388,4 @@ Please list the following for each extra functionality that you implemented
      what changes this lead to from spec given
      where the extra implementation took place.
 
+TODO: NB: check all TODO's from original skeleton are completed
