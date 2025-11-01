@@ -277,7 +277,7 @@ CarPurchaserHelper::pcpResultMonth method (CarPurchaserHelper - line 83) to calc
 personal contract plan payment (CarPurchaserHelper - line 258) and prints it as part of its recommendations based on the user's
 lifestyle.
 
-Coding process
+Section 4: Coding process
 TODO: Write Chronology of project
 (1) I initially created a git repository for the project and implemented the printWelcomeMessage and
 printGoodbyeMessage methods along with the calculateMonthlyCost and fuelCostEstimator methods.
@@ -308,13 +308,39 @@ iteration and selection, methods, their parameters and return values, how the pc
 and where they are used, and the chronology of the project to date, and ...
 
 
-challenges
+Section 5: Challenges
 TODO: Write challenges
-- formatting
-- refactoring main (passing Scanner and CarPurchaserHelper)
+(1) The first issue I had when completing the project was that the formatting of the double outputs
+of my calculation methods in the CarPurchaserHelper class were not rounded to two decimal places. I
+saw three possible solutions to this.
+    (a) I could round the outputs using the Math.round() method from the java.lang library. This has
+    been explained in the README.md. The basic idea is that I would have either rounded each value
+    in each method before returning it or implemented a helper function to round the values. I felt
+    that this would obscure the logic of each individual method by coupling it with another method or
+    the Math class which we have so far not used on the course.
+    (b) I could use the String.format() method to round the values to two decimal places at any place
+    where the values were returned or printed. Although this causes some unnecessary repetition we
+    have spent significant time in the course discussing the String class and I felt it was keeping
+    more with what has been taught in the lectures. Although the format method wasn't specifically
+    mentioned the Oracle docs and online tutorials show how the method can be easily used for
+    rounding of doubles.
+
+(2) The second issue that I had was related to refactoring the main method into several static helper
+methods. I had to pass the Scanner and CarPurchaserHelper objects as arguments into each of the helper
+methods that I created. This felt a little forced to me. I would have preferred to have both of
+those instances created in main as class fields so the static methods would not be reliant on passed
+instances to carry out their functionality. However, to solve this the way I really wanted to would
+require me to have fields in the Driver class which contain the Scanner and CarPurchaserHelper
+instances. That way I would not have to pass them through the method calls. However, as we have not
+covered OOP yet, I wanted to implement a solution that used the procedural approach to programming we
+have taken so far on the course.
+
+Section 6: Main Learnings
+
 
 References: (See README.md)
-TODO: Add link to github repo
+All references used are detailed in the README.md
+The GitHub repository for this project can be found at: TODO add GitHub repo address
 
 
 TODO: check program options all work in both
