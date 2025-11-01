@@ -66,7 +66,7 @@ public class Driver {
             System.out.println("4. Calculate Monthly Cost");
             System.out.println("5. Recommend Car Type");
             System.out.println("6. Exit");
-            System.out.print("Choose an option: ");
+            System.out.print("Choose an option by entering an integer: ");
             choice = input.nextInt();
             input.nextLine();
 
