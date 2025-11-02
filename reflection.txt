@@ -336,11 +336,25 @@ covered OOP yet, I wanted to implement a solution that used the procedural appro
 have taken so far on the course.
 
 Section 6: Main Learnings
-
+The main learnings I had during this project were the use of the format method in the String class
+and the separation of concerns in methods.
+    String formating is a very useful thing to know for printing neat displays in future projects. I was aware of the
+old C-style formatting for strings but not how to use it in Java. I also got to know some of the other
+the different characters to represent number types in this syntax. Examples are: f for a decimal number
+d for a decimal integer, C for a Unicode character.
+    I practiced separating the massive main method into smaller independent methods which I consider
+as practicing writing cleaner code which can be easily extended, maintained and tested. I found that
+this was in fact the case when I added the functionality to calculate the balloon payment and was able
+to easily implement the change in ten minutes without breaking the program or creating any unexpected
+side effects. This was mostly because I could quickly identify the parts of the program which would
+be affected by the change and convince myself that the logic there was independent of other parts of
+the program.
 
 References: (See README.md)
 All references used are detailed in the README.md
-The GitHub repository for this project can be found at: TODO add GitHub repo address
+
+The GitHub repository for this project can be found at:
+https://github.com/AdamMcCarthyCS/programming-1-assignment-1
 
 
 TODO: check program options all work in both
@@ -348,35 +362,108 @@ TODO: Mark work and add references showing evidence for marking
 Part A - Comments/Indention etc (x / 9)
 -----------------------------
 
-comments (x / 1)
-formatting (x / 2)
-naming (x / 2)
-structure of code (x / 2)
-inclusion of readme and reflection(x / 2)
+comments (1 / 1) - The program is extensively commented with both in method comments and javadoc
+comments throughout describing the methods and classes involved in both the CarPurchaserHelper and
+Driver classes
+---
+formatting (2 / 2) - The code in both the files has been formatted by selecting the code menu in the
+menu bar and then choosing Auto-Indent lines. This can be seen in the CarPurchaserHelper.java and
+Driver.java files
+---
+naming (2 / 2) - All methods that I was allowed to name use camel case format and are verb names
+that are meant to be descriptive and self-documenting.
+Examples in the CarPurchaserHelper class are:
+calculateBalloonPayment (line 120), printWelcomeMessage (line 127), and recommendCarType (line 205)
+Examples in the Driver class are:
+start (line 55), chooseMenuItem (line 102), calculateFuelCost (line 222), recommendCarChoice (line 287)
+---
+structure of code (0 / 2) - I believe that by separating my Driver class into many static methods I
+have made the program easier to debug, extend, and maintain. However, I assume that the expected
+behaviour was to have one giant main method with all the functionality inside so in that respect I
+did not do what was asked. If I was writing the program for my own purposes I would not change what
+I have done.
 
+inclusion of readme and reflection(2 / 2)
+The readme and reflection are included and completed in full in README.md and reflection.txt
 
-Part B - Working Project  (X /6)
+Part B - Working Project  (6 /6)
 -----------------------------
-Code compile and runs without error (x / 6)
+Code compile and runs without error (6 / 6) - I have run the program,and it compiles and runs on my
+Macbook Air M1 2021.
 
 
 Part C - CarPurchaseHelper (X /34)
 -----------------------------
-PCP method explained  (x / 7)
-HP method explained (x / 7)
-All other methods written   (x / 20)
+HP method explained  (5 / 7) - I have given a detailed ordered explanation of the HP method above
+(Reflection: lines 205 - 238). I have docked myself 2 marks for not fully explaining that the formula is derived
+from the present value of an annuity.
+PCP method explained (5 / 7) - I have given a detailed ordered explanation of the PCP method above
+(Reflection: lines 241 - 278). I have docked myself 2 marks for not fully explaining that the formula is derived
+from the present value of an annuity.
 
+All other methods written   (15 / 20)
+I will list all the methods of the CarPurchaserHelper class in the order that the TODOs were given
+in the skeleton project and the lines they can be found:
 
+CarPurchaserHelper methods
+--------------------------
+CarPurchaserHelper::printWelcomeMessage (lines 124 - 130)
+CarPurchaserHelper::printGoodbyeMessage (lines 132 - 138)
+CarPurchaserHelper::calculateMonthlyCost (lines 140 - 161)
+CarPurchaserHelper::fuelCostEstimator (lines 163 - 186)
+CarPurchaserHelper::recommendCarType (lines 188 - 290)
+
+Driver methods
+--------------
+In the Driver class I refactored the main method which originally contained all the program logic
+(see commit 9820e7bf Driver class for how it originally looked)
+
+This resulted in the methods:
+Driver::main (lines 15 - 42)
+Driver::start (lines 44 - 83)
+Driver::chooseMenuItem (lines 85 - 125)
+Driver::calculateHP (lines 127 - 162)
+Driver::calculatePCP (lines 164 - 208)
+Driver::calculateFuelCost (lines 210 - 237)
+Driver::calculateMonthlyCost (lines 239 -270)
+Driver::recommendCarChoice (lines 272 - 297)
+
+I will give myself 15/20 as you probably wanted the entire program logic written in the main method,
+but I do not feel this is a good idea. The reason is if something breaks it would be a nightmare to
+find what is wrong. As a general rule, I try to break program logic up into smaller blocks, so that I
+can easily change, extend, or debug the program without it being an ordeal. I learned this lesson the
+hard way from staring at python code for ages and being afraid to touch anything because the errors
+kept compounding when I did. I worked through the book "Structure and Interpretation of Computer
+Programs" (the wizard book!) by Ableton and Sussman a few years ago which teaches functional
+programming. Ever since that, my programs have been more modular and less of a headache!
 
 Part D - Driver	 (X /36)
 -----------------------------
-CarPurchaseHelper object created (X /3)
-Code written as per spec (X /33)
-   - HP Calculation code uncommented and working (X /3)
-   - PCP code correctly written and outputs amount (X /15)
-   - lcv correctly updating and menu looping (X /5)
-   - all methods created in CarPurchaseHelper called and used correctly (X /10)
+CarPurchaseHelper object created (3 /3) - line 29
+Code written as per spec (33 /33)
+   - HP Calculation code uncommented and working (3 /3) lines 146 - 161
+   - PCP code correctly written and outputs amount (15 /15) lines 182 - 207
+   - lcv correctly updating and menu looping (5 /5)
+        - Sentinel value to start (line 57)
+        - While loop continuing until choice == 0 (lines 58 - 82)
+        - lcv updating (Driver::chooseMenuItem - lines 102 - 125)
+        - functionality to exit loop (and hence program) - returning 0 from
+        Driver::chooseMenuItem (lines 119 - 120) updates choice variable in Driver::start to 0
+        which causes the loop to exit.
+   - all methods created in CarPurchaseHelper called and used correctly (10 /10)
+   I will list all the uses of the CarPurchaserHelper methods in the Driver class from top to bottom
+   below:
+   - CarPurchaserHelper constructor called to create an instance of the class (line 29)
+   - printWelcomeMessage called to generate welcome string for printing (line 33)
+   - printGoodbyeMessage called to generate exit string for printing (line 40)
+   - calculateHP called to calculate hire-purchase monthly payment (line 157)
+   - pcpResultMonth called to calculate personal contract plan montly payment (line 195)
+   - fuelCostEstimator called to calculate an estimate of weekly fuel cost (line 231)
+   - calculateMonthlyCost called to calculate the monthly repayments of a 0% interest plan (line 263)
+   - recommendCarType called to return a car recommendation based on lifestyle (line 294)
 
+
+I will give myself full marks on this section as I have implemented everything correctly.
 
 Part E - Reflection/Readme (x / 10)
 -----------------------------
@@ -387,9 +474,6 @@ Completed readme as per spec (x / 2)
 Rest(x / 5)
 Chronology of my implementation (what I did first, etc.. )
 
-TODO: Main difficulties I came across in your development of solution and how I solved them.
-
-TODO: Main learnings from my engagement with assignment
 
 Please consider the following statements and choose one (delete the inappropriate one)
 
@@ -403,10 +487,10 @@ TODO: Change menu instruction to explicitly mention inputing an integer 1-6
 
 Part G - For Extra Credit (10%)  (x / 10)
 -----------------------------
-TODO: Menu Validation
+TODO: Menu Validation (user guidance vs enforced validation)
 TODO: Recommendation method
 TODO: JavaDocs
-TODO: Github Repository with commit history (make sure to upload folder on main branch!!!)
+TODO: Github Repository with commit history (make sure to upload folder on main branch to moodle!!!)
 TODO: Decoupling of program into static methods
 
 Please list the following for each extra functionality that you implemented
