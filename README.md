@@ -29,6 +29,7 @@ enter 1 and press return.)
 user by the program is numerical data, except in the case of option 5 "Recommend Car Type", where 
 the user is asked to enter a lifestyle choice as a text string.
 
+NOTE: SEE THE VERY END OF README FOR JAVADOC AND GIT/GITHUB INSTRUCTIONS
 
 Known bugs/problems:
 ====================
@@ -88,3 +89,54 @@ Escaping a percent sign in String.format
 https://stackoverflow.com/questions/1708444/java-literal-percent-sign-in-printf-statement
 Conversion character to represent integer in String.format (scroll to first table)
 https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Formatter.html#syntax
+
+Using the project Javadocs:
+===========================
+(If you do not have the javadocs directory in the AdamMcCarthy folder)
+1) Navigate to the Tools menu in the IntelliJ menu bar
+2) Select Generate Javadoc...
+3) Tick Whole Project
+4) Select a directory to create Javadocs in
+5) Tick @author and @version and unselect any other @ option (ie deprecated etc.)
+6) Optionally select open in browser at bottom if you want to view immediately
+
+(Otherwise, If you are working with the AdamMcCarthy folder that includes the javadocs directory)
+1) Navigate to the javadocs folder in the Project window
+2) Inside there are two folders, one is the interactive Javadocs (like you would find on
+the oracle website) and the other folder is the printed Javadocs, which are a pdf file.
+3) If you want the printed Javadocs open the folder "printed javadocs" and select the class you
+want to view
+4) If you want the interactive Javadocs open the folder "interactive javadocs"
+5) Right-click on the file "allclasses-index.html"
+6) Navigate to "open in" > "Browser" > "Chrome"
+7) This will open the javadocs in the Chrome browser. You can now navigate around the 
+Javadocs using the hyperlinks
+
+Using the project Git Repository
+================================
+I have uploaded the folder to moodle with the project on its main branch (if this is not the case
+enter git switch main in the terminal)
+
+There are several branches in the repository which I used when adding features as a 
+failsafe. Feel free to explore these using "git switch branch-name":
+dev
+dev-balloon-payment
+dev-car-recommendation
+dev-docs
+dev-driver-refactor
+dev-learnings-marking
+dev-write-up
+main
+
+You can also look at my many Git mistakes, rebases, reset --mixed, and reset --hard, amends
+throughout my work using "git reflog". 
+
+Using the project Github Repository:
+The project Github repository can be found at:
+https://github.com/AdamMcCarthyCS/programming-1-assignment-1
+
+The repository can be cloned (HTTPS) using:
+https://github.com/AdamMcCarthyCS/programming-1-assignment-1.git
+
+If you've gotten this far thanks for taking the time to look at my project! Any comments or
+feedback are welcome at adammccarthycs@gmail.com
