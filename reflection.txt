@@ -59,7 +59,7 @@ set to 0 which causes the exit of the while loop, and as a result the program fi
 (lines 58 - 82)
 
 Driver::chooseMenuItem
-SELECTION: The menu choice the user has made is dealt with in a if/else-if block here. Valid
+SELECTION: The menu choice the user has made is dealt with in an if/else-if block here. Valid
 choices are passed to helper functions to carry out the logic for the menu option. I chose to
 use this apporach rather than have one massive main method which would in my opinion have been
 a nightmare to maintain and debug. If the user chooses 6 to exit, 0 is returned which leads to
@@ -205,7 +205,7 @@ In this section I will explain how the calculateHP and pcpResultMonth methods wo
 CarPurchaserHelper::calculateHP
 ------------------------------
 How the method works:
-(1) The calculateHP method takes arguments representing the car price, depoist, APR, and hire-purchase
+(1) The calculateHP method takes arguments representing the car price, deposit, APR, and hire-purchase
 duration.
 (2) It then calculates the amount to finance by subtracting the deposit from the car price giving
 the outstanding balance on the car.
@@ -245,9 +245,9 @@ How the method works:
 in years, and guaranteed minimum future value at the end of the contract
 (2) The guaranteed minimum future value is calculated by turning the gmfvPercent into a multiplier
 which is multiplied by the car price to give the future value at the end of the contract.
-(3) The amount to finance is calcualte by subtracting the deposit and guaranteed minimum future value
+(3) The amount to finance is calculate by subtracting the deposit and guaranteed minimum future value
 from the original car price.
-(4) The monthly interest rate is calcualted by dividing the integer percentage value by 100 to change
+(4) The monthly interest rate is calculated by dividing the integer percentage value by 100 to change
 it to a multiplier, then dividing the result by 12 to find out the value of the multiplier for a single
 month.
 (5) The total number of months is calculated by multiplying the number of years by 12 (months).
@@ -286,7 +286,7 @@ the menu, hp calculation, pcp calculation, fuel cost, monthly repayment and prog
 (3) I then implemented the car recommendation method in the CarPurchaserHelper class and formatted
 its string output so the numerical values would be printed to 2dp, the expected format for monetary
 values.
-(4) I then decided that instead of having a single huge main method performing all of the menu control
+(4) I then decided that instead of having a single huge main method performing all the menu control
 logic, I would refactor the Driver class to be a simple main method starting the program, a start
 method which prints and controls the program menu loop, and a chooseMenuItem method which delegates
 control flow to helper methods which perform each of the menu's 6 choices. The idea behind this is
@@ -302,7 +302,7 @@ with their day-to-day workflow.
 (6) I then wrote the readme, including user instructions, program description and problems with the
 implementation
 (7) I added a method to calculate the balloon payment and updated the output in the Driver class for
-that option (a process made very straightforward by my refactoring in step (4).
+that option (a process made very straightforward by my refactoring in step (4)).
 (8) At this point the program logic was completed and I wrote the reflection detailing, the use of
 iteration and selection, methods, their parameters and return values, how the pcp and hp methods work
 and where they are used, and the chronology of the project to date, and ...
@@ -357,9 +357,9 @@ The GitHub repository for this project can be found at:
 https://github.com/AdamMcCarthyCS/programming-1-assignment-1
 
 
-TODO: check program options all work in both
-TODO: Mark work and add references showing evidence for marking
-Part A - Comments/Indention etc (x / 9)
+Section 7: Marking
+
+Part A - Comments/Indention etc (7 / 9)
 -----------------------------
 
 comments (1 / 1) - The program is extensively commented with both in method comments and javadoc
@@ -392,7 +392,7 @@ Code compile and runs without error (6 / 6) - I have run the program,and it comp
 Macbook Air M1 2021.
 
 
-Part C - CarPurchaseHelper (X /34)
+Part C - CarPurchaseHelper (25 /34)
 -----------------------------
 HP method explained  (5 / 7) - I have given a detailed ordered explanation of the HP method above
 (Reflection: lines 205 - 238). I have docked myself 2 marks for not fully explaining that the formula is derived
@@ -437,7 +437,7 @@ kept compounding when I did. I worked through the book "Structure and Interpreta
 Programs" (the wizard book!) by Ableton and Sussman a few years ago which teaches functional
 programming. Ever since that, my programs have been more modular and less of a headache!
 
-Part D - Driver	 (X /36)
+Part D - Driver	 (36 /36)
 -----------------------------
 CarPurchaseHelper object created (3 /3) - line 29
 Code written as per spec (33 /33)
@@ -457,7 +457,7 @@ Code written as per spec (33 /33)
    - printWelcomeMessage called to generate welcome string for printing (line 33)
    - printGoodbyeMessage called to generate exit string for printing (line 40)
    - calculateHP called to calculate hire-purchase monthly payment (line 157)
-   - pcpResultMonth called to calculate personal contract plan montly payment (line 195)
+   - pcpResultMonth called to calculate personal contract plan monthly payment (line 195)
    - fuelCostEstimator called to calculate an estimate of weekly fuel cost (line 231)
    - calculateMonthlyCost called to calculate the monthly repayments of a 0% interest plan (line 263)
    - recommendCarType called to return a car recommendation based on lifestyle (line 294)
@@ -465,37 +465,95 @@ Code written as per spec (33 /33)
 
 I will give myself full marks on this section as I have implemented everything correctly.
 
-Part E - Reflection/Readme (x / 10)
+Part E - Reflection/Readme (10 / 10)
 -----------------------------
-Filled out parts A - D above (x / 3)
+Filled out parts A - D above (3 / 3) - lines 362 - 466
 
-Completed readme as per spec (x / 2)
+Completed readme as per spec (2 / 2) - See README.md
 
-Rest(x / 5)
-Chronology of my implementation (what I did first, etc.. )
-
+Rest(5 / 5)
+Chronology of my implementation (what I did first, etc. )
+As I used git to incrementally version my project I created my chronology by summarising the git
+commit history in my own words. I did this by just printing the git commit history using:
+git (log a dog!) -> git log --all --decorate --oneline --graph
+You can find the chronology above on lines 280 - 308
 
 Please consider the following statements and choose one (delete the inappropriate one)
 
 - This is my work apart from the specific references noted above (and any code from class notes).
 I understand the code and can describe any parts of the solution if needs be;
 
-Part F - Final Product (x / 5)
+I spent a lot of time on this part and believe I have followed the instructions so 10/10
+
+Part F - Final Product (4 / 5)
 -----------------------------
 Well written menu and ease of use (x/5)
-TODO: Change menu instruction to explicitly mention inputing an integer 1-6
+I just copied the menu from the project skeleton and wrote my program around this template. I added
+some soft validation in the menu by prompting the user to enter an integer (Driver line 69) and some
+forced validation in the Driver::chooseMenuItem method (lines 123 - 124) if the user entered a value
+outside the range 1 to 6. I also returned to the loop without doing anything if the user entered
+an invalid lifestyle choice in the CarPurchaserHelper::recommendCarType method (lines 245 - 247). In
+hindsight, I should have included this in the Driver class as that handles UI logic. (-1 mark)
 
-Part G - For Extra Credit (10%)  (x / 10)
+Part G - For Extra Credit (10%)  (0 / 10)
 -----------------------------
-TODO: Menu Validation (user guidance vs enforced validation)
-TODO: Recommendation method
-TODO: JavaDocs
-TODO: Github Repository with commit history (make sure to upload folder on main branch to moodle!!!)
-TODO: Decoupling of program into static methods
+(1) Menu validation: (Copied from Part F)
+I added some soft validation in the menu by prompting the user to enter an integer (Driver line 69)
+and some forced validation in the Driver::chooseMenuItem method (lines 123 - 124) if the user
+entered a value outside the range 1 to 6. I also returned to the loop without doing anything if the
+user entered an invalid lifestyle choice in the CarPurchaserHelper::recommendCarType method
+(lines 245 - 247). In hindsight, I should have included this in the Driver class as that handles UI
+logic.
 
-Please list the following for each extra functionality that you implemented
-     the extra functionality
-     what changes this lead to from spec given
-     where the extra implementation took place.
+(2) Recommendation method: (CarPurchaserHelper lines 188 - 290)
+I built the recommendation method to use the outputs of the other methods in
+the CarPurchaserHelper class rather than just hardcoding in a string. There wasn't really much
+guidance on what was expected from that method, so I thought it would be a good chance to do a method
+that amalgamated all my other work in the class. I think it's a cool method. It's a bit long and
+could probably be split into other smaller methods which I could have made private access to the
+CarPurchaserHelper class, but it shows my ability to build more complex methods, think logically,
+and also learn new java techniques such as the format method of the String class.
 
-TODO: NB: check all TODO's from original skeleton are completed
+(3) Javadocs: (javadocs folder or see README.md)
+When I was completing the helsinki java mooc, at one point I got the idea to learn how to write
+professional style java docs. For a couple of exercises I did this before making the very wise
+observation that it would take months longer to complete the course and what I was really supposed to
+be doing was learning to write java programs. It occurred to me as I was working through this program
+that this would be a good opportunity to practice writing javadocs. Since I had a basic understanding
+of the syntax, and think its good practice for when I get a job in the future writing well documented
+software, the assignment felt like a good opportunity to practice this skill when there is no pressure.
+
+(4) Git versioning/GitHub repository (https://github.com/AdamMcCarthyCS/programming-1-assignment-1)
+or "git log --oneline"
+I decided to build my project incrementally using Git versioning as I have been building repositories
+for my Programming 1 (https://github.com/AdamMcCarthyCS/programming-1) and also the
+Web Dev 1 (https://github.com/AdamMcCarthyCS/web-dev-1) courses. Again I did this to practice while
+there is not the pressure of a job on me, so I will be ready when the time comes. The Git repository
+allows anyone to go back in time through my completion of the assignment and see how the project came
+together. If you find the Easter egg of me referring to the balloon payment as the "banana payment"
+over several commits (despite my best efforts to hide its existence using git rebase), then hats off
+to you!
+
+(4) Decoupling of my Driver class into static methods (Driver Lines 25 - 299)
+I broke the giant method that I had controlling the program logic in Driver::main into several static
+methods. The main reason for this is so that I could isolate all the different pieces of logic in my
+program into easy to find, debug, maintain, and extend parts. During the Java Mooc there was lots of
+OOP and the main thing that Java has helped me to learn so far is decoupling of programs into smaller
+parts. Java sort of forces that on you in a way Python does not.
+
+I will donate any bonus marks to charity. 0/10
+
+Rubric:
+Part A - Comments/Indention etc (7 / 9)
+Part B - Working Project  (6 /6)
+Part C - CarPurchaseHelper (25 /34)
+Part D - Driver	 (36 /36)
+Part E - Reflection/Readme (10 / 10)
+Part F - Final Product (4 / 5)
+Part G - For Extra Credit (10%)  (0 / 10)
+
+Total: 88/100
+
+If you've gotten this far thanks for taking the time to look at my project! Any comments or
+feedback are welcome at adammccarthycs@gmail.com. Also feel free to visit my GitHub profile at:
+https://github.com/AdamMcCarthyCS
